@@ -1,0 +1,26 @@
+{
+  "name": "Big Daddyville EMS Training",
+  "short_name": "Big Daddyville",
+  "description": "EMT-Basic training simulation map with progressive reveal scenarios",
+  "start_url": "/big-daddyville/",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#0d1117",
+  "theme_color": "#f0c040",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "medical"],
+  "screenshots": []
+}
