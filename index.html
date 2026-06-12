@@ -342,21 +342,32 @@ svg#town{width:100%;height:100%;touch-action:none;display:block;}
       <rect x="720" y="60" width="220" height="520" rx="6" fill="#1a1520" opacity="0.4"/>
       <text x="830" y="80" text-anchor="middle" fill="#2a1a2a" font-size="8" font-family="Inter" font-weight="600" letter-spacing="1">EAST END</text>
 
-      <!-- Park — center block between Throne Ave, Crown St, Big Daddy Blvd, Papa Drive -->
-      <rect x="260" y="210" width="420" height="170" rx="10" fill="#0e2a14" opacity="0.85"/>
-      <rect x="268" y="218" width="404" height="154" rx="8" fill="#0a2010" opacity="0.8"/>
-      <text x="340" y="268" font-size="18" opacity="0.7">🌳</text>
-      <text x="390" y="255" font-size="15" opacity="0.6">🌲</text>
-      <text x="435" y="272" font-size="18" opacity="0.7">🌳</text>
-      <text x="480" y="258" font-size="14" opacity="0.6">🌿</text>
-      <text x="520" y="275" font-size="17" opacity="0.7">🌳</text>
-      <text x="565" y="260" font-size="15" opacity="0.6">🌲</text>
-      <text x="610" y="272" font-size="13" opacity="0.5">🌿</text>
-      <text x="350" y="330" font-size="14" opacity="0.5">🌿</text>
-      <text x="460" y="340" font-size="15" opacity="0.6">🌲</text>
-      <text x="550" y="332" font-size="13" opacity="0.5">🌿</text>
-      <text x="640" y="325" font-size="14" opacity="0.55">🌳</text>
-      <text x="470" y="300" text-anchor="middle" fill="#1a6a2a" font-size="10" font-family="Inter" font-weight="700" letter-spacing="2">BIG DADDY PARK</text>
+      <!-- Deron's Dreamland Park — center block -->
+      <rect x="255" y="205" width="470" height="225" rx="12" fill="#0e2a14" opacity="0.9"/>
+      <rect x="263" y="213" width="454" height="209" rx="10" fill="#0a2010" opacity="0.85"/>
+      <!-- Walking path ring -->
+      <ellipse cx="490" cy="317" rx="160" ry="75" fill="none" stroke="#1a4a1a" stroke-width="4" stroke-dasharray="12 6" opacity="0.5"/>
+      <!-- Trees scattered around -->
+      <text x="285" y="260" font-size="18" opacity="0.7">🌳</text>
+      <text x="340" y="245" font-size="15" opacity="0.6">🌲</text>
+      <text x="395" y="258" font-size="16" opacity="0.65">🌳</text>
+      <text x="590" y="248" font-size="17" opacity="0.7">🌳</text>
+      <text x="645" y="260" font-size="15" opacity="0.6">🌲</text>
+      <text x="695" y="252" font-size="14" opacity="0.6">🌿</text>
+      <text x="275" y="355" font-size="15" opacity="0.55">🌿</text>
+      <text x="310" y="390" font-size="17" opacity="0.6">🌳</text>
+      <text x="660" y="375" font-size="16" opacity="0.6">🌲</text>
+      <text x="700" y="398" font-size="14" opacity="0.55">🌿</text>
+      <text x="440" y="398" font-size="13" opacity="0.5">🌿</text>
+      <text x="530" y="402" font-size="14" opacity="0.5">🌿</text>
+      <!-- Bench icons -->
+      <text x="375" y="318" font-size="12" opacity="0.5">🪑</text>
+      <text x="590" y="318" font-size="12" opacity="0.5">🪑</text>
+      <!-- Park name -->
+      <text x="490" y="290" text-anchor="middle" fill="#2a8a3a" font-size="11" font-family="Inter" font-weight="700" letter-spacing="2">DERON'S DREAMLAND PARK</text>
+      <!-- Fountain in center -->
+      <circle cx="490" cy="317" r="12" fill="#0a1a2a" stroke="#1a4a6a" stroke-width="2" opacity="0.8"/>
+      <text x="490" y="322" text-anchor="middle" font-size="11" opacity="0.7">⛲</text>
 
       <!-- Water feature — Daddy Pond, bottom left corner -->
       <ellipse cx="80" cy="560" rx="55" ry="30" fill="#0a1a2e" opacity="0.8"/>
@@ -433,76 +444,106 @@ svg#town{width:100%;height:100%;touch-action:none;display:block;}
       <!-- ── PINS ── -->
       <!-- STATIC PINS -->
       <g class="pin-group" id="pin-bd_burger" data-id="bd_burger" style="cursor:pointer">
-        <circle class="pin-ring" cx="95" cy="165" r="20" stroke="#e67e22" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="95" cy="167" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="95" cy="165" r="14" fill="#e67e22" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="95" y="170" text-anchor="middle" font-size="13" style="pointer-events:none">🍔</text>
-      </g>
-      <g class="pin-group" id="pin-bd_bbq" data-id="bd_bbq" style="cursor:pointer">
-        <circle class="pin-ring" cx="320" cy="165" r="20" stroke="#e67e22" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="320" cy="167" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="320" cy="165" r="14" fill="#e67e22" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="320" y="170" text-anchor="middle" font-size="13" style="pointer-events:none">🍖</text>
-      </g>
-      <g class="pin-group" id="pin-bd_chinese" data-id="bd_chinese" style="cursor:pointer">
-        <circle class="pin-ring" cx="530" cy="165" r="20" stroke="#e67e22" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="530" cy="167" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="530" cy="165" r="14" fill="#e67e22" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="530" y="170" text-anchor="middle" font-size="13" style="pointer-events:none">🥡</text>
-      </g>
-      <g class="pin-group" id="pin-bd_pizza" data-id="bd_pizza" style="cursor:pointer">
-        <circle class="pin-ring" cx="85" cy="375" r="20" stroke="#e67e22" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="85" cy="377" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="85" cy="375" r="14" fill="#e67e22" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="85" y="380" text-anchor="middle" font-size="13" style="pointer-events:none">🍕</text>
-      </g>
-      <g class="pin-group" id="pin-bd_taco" data-id="bd_taco" style="cursor:pointer">
-        <circle class="pin-ring" cx="610" cy="375" r="20" stroke="#e67e22" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="610" cy="377" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="610" cy="375" r="14" fill="#e67e22" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="610" y="380" text-anchor="middle" font-size="13" style="pointer-events:none">🌮</text>
-      </g>
-      <g class="pin-group" id="pin-bd_diner" data-id="bd_diner" style="cursor:pointer">
-        <circle class="pin-ring" cx="840" cy="375" r="20" stroke="#e67e22" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="840" cy="377" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="840" cy="375" r="14" fill="#e67e22" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="840" y="380" text-anchor="middle" font-size="13" style="pointer-events:none">🥞</text>
-      </g>
-      <g class="pin-group" id="pin-bd_coffee" data-id="bd_coffee" style="cursor:pointer">
-        <circle class="pin-ring" cx="230" cy="110" r="20" stroke="#a0522d" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="230" cy="112" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="230" cy="110" r="14" fill="#a0522d" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="230" y="115" text-anchor="middle" font-size="13" style="pointer-events:none">☕</text>
-      </g>
-      <g class="pin-group" id="pin-bd_cafe" data-id="bd_cafe" style="cursor:pointer">
-        <circle class="pin-ring" cx="725" cy="490" r="20" stroke="#a0522d" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="725" cy="492" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="725" cy="490" r="14" fill="#a0522d" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="725" y="495" text-anchor="middle" font-size="13" style="pointer-events:none">☕</text>
+        <circle class="pin-ring" cx="70" cy="175" r="20" stroke="#e67e22" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="70" cy="177" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="70" cy="175" r="14" fill="#e67e22" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="70" y="180" text-anchor="middle" font-size="13" style="pointer-events:none">🍔</text>
       </g>
       <g class="pin-group" id="pin-bd_grocery" data-id="bd_grocery" style="cursor:pointer">
-        <circle class="pin-ring" cx="175" cy="165" r="20" stroke="#27ae60" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="175" cy="167" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="175" cy="165" r="14" fill="#27ae60" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="175" y="170" text-anchor="middle" font-size="13" style="pointer-events:none">🛒</text>
+        <circle class="pin-ring" cx="165" cy="175" r="20" stroke="#27ae60" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="165" cy="177" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="165" cy="175" r="14" fill="#27ae60" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="165" y="180" text-anchor="middle" font-size="13" style="pointer-events:none">🛒</text>
       </g>
-      <g class="pin-group" id="pin-bd_dollar" data-id="bd_dollar" style="cursor:pointer">
-        <circle class="pin-ring" cx="460" cy="375" r="20" stroke="#27ae60" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="460" cy="377" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="460" cy="375" r="14" fill="#27ae60" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="460" y="380" text-anchor="middle" font-size="13" style="pointer-events:none">🏪</text>
+      <g class="pin-group" id="pin-bd_coffee" data-id="bd_coffee" style="cursor:pointer">
+        <circle class="pin-ring" cx="230" cy="100" r="20" stroke="#a0522d" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="230" cy="102" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="230" cy="100" r="14" fill="#a0522d" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="230" y="105" text-anchor="middle" font-size="13" style="pointer-events:none">☕</text>
+      </g>
+      <g class="pin-group" id="pin-bd_bbq" data-id="bd_bbq" style="cursor:pointer">
+        <circle class="pin-ring" cx="330" cy="175" r="20" stroke="#e67e22" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="330" cy="177" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="330" cy="175" r="14" fill="#e67e22" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="330" y="180" text-anchor="middle" font-size="13" style="pointer-events:none">🍖</text>
+      </g>
+      <g class="pin-group" id="pin-bd_bar" data-id="bd_bar" style="cursor:pointer">
+        <circle class="pin-ring" cx="400" cy="175" r="20" stroke="#e94560" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="400" cy="177" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="400" cy="175" r="14" fill="#e94560" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="400" y="180" text-anchor="middle" font-size="13" style="pointer-events:none">🍺</text>
+      </g>
+      <g class="pin-group" id="pin-bd_police" data-id="bd_police" style="cursor:pointer">
+        <circle class="pin-ring" cx="465" cy="175" r="20" stroke="#1a5276" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="465" cy="177" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="465" cy="175" r="14" fill="#1a5276" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="465" y="180" text-anchor="middle" font-size="13" style="pointer-events:none">🚔</text>
       </g>
       <g class="pin-group" id="pin-bd_pawn" data-id="bd_pawn" style="cursor:pointer">
-        <circle class="pin-ring" cx="480" cy="165" r="20" stroke="#27ae60" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="480" cy="167" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="480" cy="165" r="14" fill="#27ae60" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="480" y="170" text-anchor="middle" font-size="13" style="pointer-events:none">💍</text>
+        <circle class="pin-ring" cx="560" cy="175" r="20" stroke="#27ae60" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="560" cy="177" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="560" cy="175" r="14" fill="#27ae60" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="560" y="180" text-anchor="middle" font-size="13" style="pointer-events:none">💍</text>
+      </g>
+      <g class="pin-group" id="pin-bd_chinese" data-id="bd_chinese" style="cursor:pointer">
+        <circle class="pin-ring" cx="640" cy="175" r="20" stroke="#e67e22" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="640" cy="177" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="640" cy="175" r="14" fill="#e67e22" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="640" y="180" text-anchor="middle" font-size="13" style="pointer-events:none">🥡</text>
       </g>
       <g class="pin-group" id="pin-bd_pharmacy" data-id="bd_pharmacy" style="cursor:pointer">
-        <circle class="pin-ring" cx="710" cy="135" r="20" stroke="#2980b9" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="710" cy="137" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="710" cy="135" r="14" fill="#2980b9" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="710" y="140" text-anchor="middle" font-size="13" style="pointer-events:none">💊</text>
+        <circle class="pin-ring" cx="730" cy="110" r="20" stroke="#2980b9" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="730" cy="112" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="730" cy="110" r="14" fill="#2980b9" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="730" y="115" text-anchor="middle" font-size="13" style="pointer-events:none">💊</text>
+      </g>
+      <g class="pin-group" id="pin-bd_carwash" data-id="bd_carwash" style="cursor:pointer">
+        <circle class="pin-ring" cx="800" cy="175" r="20" stroke="#7f8c8d" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="800" cy="177" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="800" cy="175" r="14" fill="#7f8c8d" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="800" y="180" text-anchor="middle" font-size="13" style="pointer-events:none">🚗</text>
+      </g>
+      <g class="pin-group" id="pin-bd_auto" data-id="bd_auto" style="cursor:pointer">
+        <circle class="pin-ring" cx="900" cy="175" r="20" stroke="#7f8c8d" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="900" cy="177" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="900" cy="175" r="14" fill="#7f8c8d" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="900" y="180" text-anchor="middle" font-size="13" style="pointer-events:none">🔧</text>
+      </g>
+      <g class="pin-group" id="pin-bd_school" data-id="bd_school" style="cursor:pointer">
+        <circle class="pin-ring" cx="65" cy="445" r="20" stroke="#d35400" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="65" cy="447" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="65" cy="445" r="14" fill="#d35400" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="65" y="450" text-anchor="middle" font-size="13" style="pointer-events:none">🏫</text>
+      </g>
+      <g class="pin-group" id="pin-bd_pizza" data-id="bd_pizza" style="cursor:pointer">
+        <circle class="pin-ring" cx="155" cy="445" r="20" stroke="#e67e22" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="155" cy="447" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="155" cy="445" r="14" fill="#e67e22" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="155" y="450" text-anchor="middle" font-size="13" style="pointer-events:none">🍕</text>
+      </g>
+      <g class="pin-group" id="pin-bd_motel" data-id="bd_motel" style="cursor:pointer">
+        <circle class="pin-ring" cx="230" cy="510" r="20" stroke="#8e44ad" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="230" cy="512" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="230" cy="510" r="14" fill="#8e44ad" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="230" y="515" text-anchor="middle" font-size="13" style="pointer-events:none">🏨</text>
+      </g>
+      <g class="pin-group" id="pin-bd_laundry" data-id="bd_laundry" style="cursor:pointer">
+        <circle class="pin-ring" cx="330" cy="445" r="20" stroke="#7f8c8d" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="330" cy="447" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="330" cy="445" r="14" fill="#7f8c8d" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="330" y="450" text-anchor="middle" font-size="13" style="pointer-events:none">👕</text>
+      </g>
+      <g class="pin-group" id="pin-bd_dollar" data-id="bd_dollar" style="cursor:pointer">
+        <circle class="pin-ring" cx="430" cy="445" r="20" stroke="#27ae60" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="430" cy="447" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="430" cy="445" r="14" fill="#27ae60" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="430" y="450" text-anchor="middle" font-size="13" style="pointer-events:none">🏪</text>
+      </g>
+      <g class="pin-group" id="pin-bd_taco" data-id="bd_taco" style="cursor:pointer">
+        <circle class="pin-ring" cx="560" cy="445" r="20" stroke="#e67e22" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="560" cy="447" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="560" cy="445" r="14" fill="#e67e22" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="560" y="450" text-anchor="middle" font-size="13" style="pointer-events:none">🌮</text>
       </g>
       <g class="pin-group" id="pin-bd_cbd" data-id="bd_cbd" style="cursor:pointer">
         <circle class="pin-ring" cx="230" cy="310" r="20" stroke="#2980b9" fill="none" stroke-width="2" opacity="0"/>
@@ -511,82 +552,60 @@ svg#town{width:100%;height:100%;touch-action:none;display:block;}
         <text x="230" y="315" text-anchor="middle" font-size="13" style="pointer-events:none">🌿</text>
       </g>
       <g class="pin-group" id="pin-bd_smoke" data-id="bd_smoke" style="cursor:pointer">
-        <circle class="pin-ring" cx="230" cy="355" r="20" stroke="#2980b9" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="230" cy="357" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="230" cy="355" r="14" fill="#2980b9" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="230" y="360" text-anchor="middle" font-size="13" style="pointer-events:none">💨</text>
-      </g>
-      <g class="pin-group" id="pin-bd_carwash" data-id="bd_carwash" style="cursor:pointer">
-        <circle class="pin-ring" cx="790" cy="165" r="20" stroke="#7f8c8d" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="790" cy="167" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="790" cy="165" r="14" fill="#7f8c8d" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="790" y="170" text-anchor="middle" font-size="13" style="pointer-events:none">🚗</text>
-      </g>
-      <g class="pin-group" id="pin-bd_laundry" data-id="bd_laundry" style="cursor:pointer">
-        <circle class="pin-ring" cx="150" cy="375" r="20" stroke="#7f8c8d" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="150" cy="377" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="150" cy="375" r="14" fill="#7f8c8d" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="150" y="380" text-anchor="middle" font-size="13" style="pointer-events:none">👕</text>
-      </g>
-      <g class="pin-group" id="pin-bd_auto" data-id="bd_auto" style="cursor:pointer">
-        <circle class="pin-ring" cx="860" cy="165" r="20" stroke="#7f8c8d" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="860" cy="167" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="860" cy="165" r="14" fill="#7f8c8d" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="860" y="170" text-anchor="middle" font-size="13" style="pointer-events:none">🔧</text>
-      </g>
-      <g class="pin-group" id="pin-bd_club" data-id="bd_club" style="cursor:pointer">
-        <circle class="pin-ring" cx="770" cy="440" r="20" stroke="#e94560" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="770" cy="442" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="770" cy="440" r="14" fill="#e94560" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="770" y="445" text-anchor="middle" font-size="13" style="pointer-events:none">🎭</text>
-      </g>
-      <g class="pin-group" id="pin-bd_bar" data-id="bd_bar" style="cursor:pointer">
-        <circle class="pin-ring" cx="390" cy="165" r="20" stroke="#e94560" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="390" cy="167" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="390" cy="165" r="14" fill="#e94560" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="390" y="170" text-anchor="middle" font-size="13" style="pointer-events:none">🍺</text>
+        <circle class="pin-ring" cx="230" cy="360" r="20" stroke="#2980b9" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="230" cy="362" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="230" cy="360" r="14" fill="#2980b9" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="230" y="365" text-anchor="middle" font-size="13" style="pointer-events:none">💨</text>
       </g>
       <g class="pin-group" id="pin-bd_liquor" data-id="bd_liquor" style="cursor:pointer">
-        <circle class="pin-ring" cx="710" cy="490" r="20" stroke="#e94560" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="710" cy="492" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="710" cy="490" r="14" fill="#e94560" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="710" y="495" text-anchor="middle" font-size="13" style="pointer-events:none">🥃</text>
+        <circle class="pin-ring" cx="660" cy="445" r="20" stroke="#e94560" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="660" cy="447" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="660" cy="445" r="14" fill="#e94560" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="660" y="450" text-anchor="middle" font-size="13" style="pointer-events:none">🥃</text>
       </g>
-      <g class="pin-group" id="pin-bd_motel" data-id="bd_motel" style="cursor:pointer">
-        <circle class="pin-ring" cx="100" cy="430" r="20" stroke="#8e44ad" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="100" cy="432" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="100" cy="430" r="14" fill="#8e44ad" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="100" y="435" text-anchor="middle" font-size="13" style="pointer-events:none">🏨</text>
+      <g class="pin-group" id="pin-bd_club" data-id="bd_club" style="cursor:pointer">
+        <circle class="pin-ring" cx="730" cy="510" r="20" stroke="#e94560" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="730" cy="512" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="730" cy="510" r="14" fill="#e94560" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="730" y="515" text-anchor="middle" font-size="13" style="pointer-events:none">🎭</text>
       </g>
-      <g class="pin-group" id="pin-bd_suites" data-id="bd_suites" style="cursor:pointer">
-        <circle class="pin-ring" cx="840" cy="490" r="20" stroke="#8e44ad" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="840" cy="492" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="840" cy="490" r="14" fill="#8e44ad" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="840" y="495" text-anchor="middle" font-size="13" style="pointer-events:none">🏩</text>
+      <g class="pin-group" id="pin-bd_cafe" data-id="bd_cafe" style="cursor:pointer">
+        <circle class="pin-ring" cx="800" cy="445" r="20" stroke="#a0522d" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="800" cy="447" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="800" cy="445" r="14" fill="#a0522d" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="800" y="450" text-anchor="middle" font-size="13" style="pointer-events:none">☕</text>
+      </g>
+      <g class="pin-group" id="pin-bd_diner" data-id="bd_diner" style="cursor:pointer">
+        <circle class="pin-ring" cx="900" cy="445" r="20" stroke="#e67e22" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="900" cy="447" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="900" cy="445" r="14" fill="#e67e22" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="900" y="450" text-anchor="middle" font-size="13" style="pointer-events:none">🥞</text>
       </g>
       <g class="pin-group" id="pin-bd_fire" data-id="bd_fire" style="cursor:pointer">
-        <circle class="pin-ring" cx="230" cy="500" r="20" stroke="#c0392b" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="230" cy="502" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="230" cy="500" r="14" fill="#c0392b" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="230" y="505" text-anchor="middle" font-size="13" style="pointer-events:none">🚒</text>
-      </g>
-      <g class="pin-group" id="pin-bd_police" data-id="bd_police" style="cursor:pointer">
-        <circle class="pin-ring" cx="440" cy="165" r="20" stroke="#1a5276" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="440" cy="167" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="440" cy="165" r="14" fill="#1a5276" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="440" y="170" text-anchor="middle" font-size="13" style="pointer-events:none">🚔</text>
-      </g>
-      <g class="pin-group" id="pin-bd_school" data-id="bd_school" style="cursor:pointer">
-        <circle class="pin-ring" cx="65" cy="430" r="20" stroke="#d35400" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="65" cy="432" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="65" cy="430" r="14" fill="#d35400" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="65" y="435" text-anchor="middle" font-size="13" style="pointer-events:none">🏫</text>
+        <circle class="pin-ring" cx="130" cy="310" r="20" stroke="#c0392b" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="130" cy="312" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="130" cy="310" r="14" fill="#c0392b" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="130" y="315" text-anchor="middle" font-size="13" style="pointer-events:none">🚒</text>
       </g>
       <g class="pin-group" id="pin-bd_church" data-id="bd_church" style="cursor:pointer">
-        <circle class="pin-ring" cx="230" cy="570" r="20" stroke="#d35400" fill="none" stroke-width="2" opacity="0"/>
-        <circle cx="230" cy="572" r="15" fill="rgba(0,0,0,0.35)"/>
-        <circle class="pin-circle" cx="230" cy="570" r="14" fill="#d35400" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
-        <text x="230" y="575" text-anchor="middle" font-size="13" style="pointer-events:none">⛪</text>
+        <circle class="pin-ring" cx="230" cy="575" r="20" stroke="#d35400" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="230" cy="577" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="230" cy="575" r="14" fill="#d35400" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="230" y="580" text-anchor="middle" font-size="13" style="pointer-events:none">⛪</text>
+      </g>
+      <g class="pin-group" id="pin-bd_suites" data-id="bd_suites" style="cursor:pointer">
+        <circle class="pin-ring" cx="870" cy="510" r="20" stroke="#8e44ad" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="870" cy="512" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="870" cy="510" r="14" fill="#8e44ad" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="870" y="515" text-anchor="middle" font-size="13" style="pointer-events:none">🏩</text>
+      </g>
+      <g class="pin-group" id="pin-bd_park" data-id="bd_park" style="cursor:pointer">
+        <circle class="pin-ring" cx="480" cy="315" r="20" stroke="#2ea043" fill="none" stroke-width="2" opacity="0"/>
+        <circle cx="480" cy="317" r="15" fill="rgba(0,0,0,0.35)"/>
+        <circle class="pin-circle" cx="480" cy="315" r="14" fill="#2ea043" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/>
+        <text x="480" y="320" text-anchor="middle" font-size="13" style="pointer-events:none">🌳</text>
+      </g>
+      
       </g>
     </svg>
   </div>
@@ -608,6 +627,7 @@ svg#town{width:100%;height:100%;touch-action:none;display:block;}
       <div class="leg-item"><div class="leg-dot" style="background:#c0392b"></div>Fire</div>
       <div class="leg-item"><div class="leg-dot" style="background:#1a5276"></div>Police</div>
       <div class="leg-item"><div class="leg-dot" style="background:#d35400"></div>School</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#2ea043"></div>Park</div>
     </div>
     <div class="scenario-wrap" id="scenarioWrap">
       <div class="idle-state">
@@ -805,6 +825,17 @@ bd_church: [
   { dispatch_line:"Medic 12, Big Daddy's House of Grace — female, 30s, syncope at the pulpit during a ceremony.", chief_complaint:"Syncope, fell from the pulpit, head strike", scene_description:"A young female minister fainted while leading a ceremony and fell forward off the elevated pulpit platform. She struck her chin and chest on the platform edge on the way down. She is on the floor with a congregation member supporting her head. She is regaining consciousness.", patient_info:"34-year-old female, PMH: none, 8 months pregnant.", vitals:{bp:"88/52",hr:"108",rr:"20",spo2:"98%",gcs:"14",temp:"98.4°F"}, pertinent_findings:"8-month (32 week) pregnant patient with syncope and fall. Chin laceration with controlled bleeding. Complains of abdominal pain since falling. Uterus is at the fundal height for 32 weeks. She fell forward — direct anterior abdominal impact on the platform edge.", teaching_points:"1. Direct trauma to the gravid uterus is an obstetric emergency — placental abruption presents with abdominal pain, uterine rigidity, and potentially concealed hemorrhage that can cause rapid deterioration; transport emergently to an OB-capable facility. 2. Syncope in a third-trimester patient is often positional (aortocaval compression in supine position) — transport in left lateral decubitus position, which may be both therapeutic and diagnostic; if BP improves with position change, supine hypotension was likely the cause." },
 ],
 
+bd_park: [
+  { dispatch_line:"Medic 12, Deron's Dreamland Park — male, 30s, fell from a park bench, complaining of wrist pain and deformity.", chief_complaint:"Fall from bench, wrist deformity", scene_description:"You find a male sitting on the grass next to an overturned bench near the fountain. He says he slipped off the bench and threw his hand out to catch himself. His right wrist is visibly deformed with swelling already forming. He is alert and in moderate pain.", patient_info:"34-year-old male, PMH: none, no medications.", vitals:{bp:"128/80",hr:"92",rr:"16",spo2:"99%",gcs:"15",temp:"98.6°F"}, pertinent_findings:"Obvious deformity at the distal right forearm consistent with a Colles fracture. Point tenderness over the distal radius. Distal CSM intact — fingers are warm, sensation normal, patient can wiggle fingers. No open wound. Mechanism is classic FOOSH (fall on outstretched hand).", teaching_points:"1. Always assess and document CSM (circulation, sensation, movement) distal to any fracture before AND after splinting — a change after splinting means it is too tight and must be loosened immediately. 2. Splint the fracture in the position found — do not attempt to straighten or realign a deformed extremity in the field; immobilize the joint above (elbow) and below (hand) the injury site." },
+
+  { dispatch_line:"Medic 12, Deron's Dreamland Park — female runner, 40s, near syncope during morning jog, heat related.", chief_complaint:"Near syncope, dizziness, heat exposure", scene_description:"A female jogger is seated on a park bench being supported by another runner. She says she was on her third lap when she started feeling dizzy and almost blacked out. She sat down before falling. It is 91 degrees outside and she has been running for 45 minutes. She did not bring water.", patient_info:"43-year-old female, PMH: hypertension, takes lisinopril daily.", vitals:{bp:"98/62",hr:"118",rr:"22",spo2:"98%",gcs:"15",temp:"102.4°F"}, pertinent_findings:"Skin is hot, flushed and moist with heavy sweating. Elevated temperature at 102.4°F. Tachycardic and mildly hypotensive. Complains of headache, nausea, and muscle cramps in her calves. She is alert and oriented but says she feels like the world is spinning.", teaching_points:"1. Heat exhaustion presents with heavy sweating, weakness, dizziness, nausea, and elevated temperature — move the patient to a cool environment, remove excess clothing, apply cool wet cloths to the neck and axilla, and encourage sips of water if fully alert and able to swallow. 2. Know the difference between heat exhaustion and heat stroke — heat stroke involves a temperature above 104°F with hot DRY skin and altered mental status and is a true emergency; this patient is still alert with moist skin suggesting heat exhaustion, but monitor closely for deterioration." },
+
+  { dispatch_line:"Medic 12, Deron's Dreamland Park — child, 8 years old, eye injury from a stick while playing.", chief_complaint:"Eye injury, stick to right eye, pain and tearing", scene_description:"A child is sitting on the grass crying and holding his right eye. His mother says he was running through the wooded section of the park and a low branch struck him directly in the right eye. He will not open the eye and there is tearing and some blood around the orbit.", patient_info:"8-year-old male, PMH: none.", vitals:{bp:"108/64",hr:"106",rr:"18",spo2:"99%",gcs:"15",temp:"98.6°F"}, pertinent_findings:"Child is alert and crying but cooperative. Right eye is held shut with significant tearing. Periorbital swelling developing. Visible abrasion on the eyelid. Cannot fully assess the globe due to pain and swelling. Left eye is normal. No other injuries noted.", teaching_points:"1. Never apply direct pressure to a suspected eye injury — if you cannot rule out a penetrating globe injury, cover the eye with a rigid shield such as a paper cup taped in place, applying NO pressure; pressure on a ruptured globe can cause permanent blindness. 2. Cover both eyes to reduce sympathetic movement — when the uninjured eye moves, the injured eye moves with it; bilateral soft patching reduces involuntary movement and protects the injured eye during transport." },
+
+  { dispatch_line:"Medic 12, Deron's Dreamland Park — elderly male, fell on the walking path, hip pain, unable to get up.", chief_complaint:"Ground level fall, hip pain, cannot stand", scene_description:"An elderly man is lying on his back on the walking path near the fountain. A bystander called 911 after he tripped on an uneven section of the path and went down hard on his right side. He is alert and talking but says the pain in his right hip is severe and he cannot move his leg without it getting worse.", patient_info:"76-year-old male, PMH: osteoporosis, atrial fibrillation, takes warfarin and metoprolol.", vitals:{bp:"146/88",hr:"82 irregular",rr:"16",spo2:"97%",gcs:"15",temp:"98.4°F"}, pertinent_findings:"Right lower extremity is externally rotated and shortened compared to the left — classic hip fracture presentation. Severe pain at the right groin and hip with any attempt to move the leg. Distal CSM intact in the right foot. Patient is on warfarin which significantly increases internal bleeding risk.", teaching_points:"1. External rotation and shortening of the lower extremity after a fall in an elderly patient is a hip fracture until proven otherwise — do not attempt to straighten the leg; immobilize in position found using a scoop stretcher or long board with padding to support the leg as it lies. 2. An anticoagulated patient with a hip fracture is at high risk for significant blood loss even without visible external bleeding — the hip joint and pelvis can accumulate 500mL to 1.5 liters of blood internally; monitor closely for signs of shock and communicate warfarin use clearly to the receiving facility." },
+],
+
+
 };
 const locations = [
   { id:'bd_burger',   name:"Big Daddy's Burgers",         addr:"101 Big Daddy Blvd", cat:'food',   icon:'🍔', tagline:"Grease, Glory & Gut Calls",        cx:95,  cy:165 },
@@ -832,11 +863,12 @@ const locations = [
   { id:'bd_fire',     name:"Big Daddy Fire Station 1",     addr:"500 Throne Ave",      cat:'fire',   icon:'🚒', tagline:"Home Base",                         cx:230, cy:500 },
   { id:'bd_police',   name:"Big Daddy PD",                 addr:"420 Big Daddy Blvd", cat:'police', icon:'🚔', tagline:"To Protect & Serve Big Daddyville",  cx:440, cy:165 },
   { id:'bd_school',   name:"Big Daddy High School",        addr:"60 Papa Drive",       cat:'school', icon:'🏫', tagline:"Go Big Daddy Bulldogs!",            cx:65,  cy:430 },
-  { id:'bd_church',   name:"Big Daddy's House of Grace",   addr:"600 Throne Ave",      cat:'school', icon:'⛪', tagline:"All Are Welcome Here",              cx:230, cy:570 },
+  { id:'bd_church',   name:"Big Daddy's House of Grace",   addr:"600 Throne Ave",      cat:'school', icon:'⛪', tagline:"All Are Welcome Here",              cx:230, cy:575 },
+  { id:'bd_park',     name:"Deron's Dreamland Park",        addr:"Center of Big Daddyville", cat:'park', icon:'🌳', tagline:"Where Every Call Is a Learning Moment", cx:480, cy:315 },
 ];
 
-const catColor={food:'#e67e22',coffee:'#a0522d',retail:'#27ae60',health:'#2980b9',auto:'#7f8c8d',adult:'#e94560',hotel:'#8e44ad',fire:'#c0392b',police:'#1a5276',school:'#d35400'};
-const catLabel={food:'Food & Dining',coffee:'Coffee Shop',retail:'Retail',health:'Health / CBD',auto:'Auto & Laundry',adult:'Adult & Nightlife',hotel:'Hotel / Motel',fire:'Fire Station',police:'Police Dept',school:'School / Church'};
+const catColor={food:'#e67e22',coffee:'#a0522d',retail:'#27ae60',health:'#2980b9',auto:'#7f8c8d',adult:'#e94560',hotel:'#8e44ad',fire:'#c0392b',police:'#1a5276',school:'#d35400',park:'#2ea043'};
+const catLabel={food:'Food & Dining',coffee:'Coffee Shop',retail:'Retail',health:'Health / CBD',auto:'Auto & Laundry',adult:'Adult & Nightlife',hotel:'Hotel / Motel',fire:'Fire Station',police:'Police Dept',school:'School / Church',park:'Park / Outdoor'};
 
 const scenarioIndex={};
 locations.forEach(l=>{scenarioIndex[l.id]=0;});
