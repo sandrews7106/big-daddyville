@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
@@ -7,24 +7,35 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
   <title>XpressoMedic Scenarios</title>
   <link rel="stylesheet" href="css/style.css"/>
+  <script>
+    // Apply saved theme before paint to avoid flash
+    (function() {
+      const saved = localStorage.getItem('xm-theme') ||
+        (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
   <style>
     /* ── HOME SCREEN OVERRIDES ── */
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #0d1117;
-      color: #e6edf3;
+      background: var(--bg);
+      color: var(--text);
       min-height: 100vh;
       min-height: -webkit-fill-available;
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      transition: background 0.25s, color 0.25s;
     }
 
     /* HEADER */
     .home-header {
-      background: linear-gradient(180deg, #111827 0%, #0d1117 100%);
+      background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
       border-bottom: 1px solid rgba(240,192,64,0.2);
       padding: calc(env(safe-area-inset-top, 0px) + 28px) 24px 24px;
       display: flex;
@@ -32,7 +43,27 @@
       align-items: center;
       gap: 0;
       flex-shrink: 0;
+      position: relative;
     }
+
+    .theme-toggle-home {
+      position: absolute;
+      top: calc(env(safe-area-inset-top, 0px) + 16px);
+      right: 16px;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 1.1rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .theme-toggle-home:active { background: rgba(128,128,128,0.15); }
 
     .header-logo {
       width: 140px;
@@ -55,15 +86,15 @@
       font-family: 'Bebas Neue', 'Impact', sans-serif;
       font-size: 2rem;
       letter-spacing: 4px;
-      color: #f0c040;
+      color: var(--gold);
       text-align: center;
       margin-bottom: 8px;
-      text-shadow: 0 0 20px rgba(240,192,64,0.3);
+      text-shadow: 0 0 20px rgba(240,192,64,0.2);
     }
 
     .home-subtitle {
       font-size: 0.78rem;
-      color: #7d8590;
+      color: var(--muted);
       text-align: center;
       line-height: 1.6;
       margin-bottom: 28px;
@@ -80,17 +111,17 @@
     }
 
     .level-card {
-      background: linear-gradient(135deg, #1e2d3d, #1a2332);
+      background: linear-gradient(135deg, var(--card), var(--panel));
       border-radius: 14px;
       padding: 18px 20px;
       display: flex;
       align-items: center;
       gap: 16px;
       text-decoration: none;
-      color: #e6edf3;
+      color: var(--text);
       transition: transform 0.15s, box-shadow 0.15s;
       -webkit-tap-highlight-color: transparent;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
       position: relative;
       overflow: hidden;
     }
@@ -127,10 +158,7 @@
     .level-card.aemt  .level-svg-icon { background: rgba(56,139,253,0.15); }
     .level-card.medic .level-svg-icon { background: rgba(233,69,96,0.15); }
 
-    .level-svg-icon svg {
-      width: 26px;
-      height: 26px;
-    }
+    .level-svg-icon svg { width: 26px; height: 26px; }
 
     .level-info { flex: 1; }
 
@@ -147,7 +175,7 @@
 
     .level-desc {
       font-size: 0.7rem;
-      color: #7d8590;
+      color: var(--muted);
       line-height: 1.5;
     }
 
@@ -165,7 +193,7 @@
 
     /* FOOTER */
     .home-footer {
-      background: linear-gradient(180deg, #0d1117 0%, #111827 100%);
+      background: linear-gradient(180deg, var(--bg) 0%, var(--surface) 100%);
       border-top: 1px solid rgba(240,192,64,0.15);
       padding: 20px 24px;
       padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
@@ -186,14 +214,15 @@
       height: 52px;
       width: auto;
       object-fit: contain;
-      filter: brightness(0) invert(1) drop-shadow(0 1px 4px rgba(0,0,0,0.3));
       opacity: 0.85;
     }
+    [data-theme="dark"]  .footer-logo-img { filter: brightness(0) invert(1) drop-shadow(0 1px 4px rgba(0,0,0,0.3)); }
+    [data-theme="light"] .footer-logo-img { filter: brightness(0) drop-shadow(0 1px 4px rgba(0,0,0,0.15)); opacity: 0.7; }
 
     .footer-divider {
       width: 1px;
       height: 36px;
-      background: rgba(255,255,255,0.15);
+      background: var(--border);
     }
 
     .footer-text-block { text-align: left; }
@@ -202,22 +231,23 @@
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1rem;
       letter-spacing: 2px;
-      color: #f0c040;
+      color: var(--gold);
       line-height: 1;
     }
 
     .footer-sub {
       font-size: 0.62rem;
-      color: #7d8590;
+      color: var(--muted);
       letter-spacing: 0.5px;
       margin-top: 3px;
     }
 
     .footer-version {
       font-size: 0.58rem;
-      color: #4a5568;
+      color: var(--muted);
       letter-spacing: 1px;
       text-transform: uppercase;
+      opacity: 0.6;
     }
   </style>
 </head>
@@ -225,6 +255,7 @@
 
   <!-- HEADER -->
   <div class="home-header">
+    <button class="theme-toggle-home" id="themeToggle" aria-label="Toggle theme">🌙</button>
     <img src="images/xpresso-circle.png" alt="XpressoMedic" class="header-logo"/>
   </div>
 
@@ -300,8 +331,23 @@
         <div class="footer-sub">Scenarios · EMS Training</div>
       </div>
     </div>
-    <div class="footer-version">v1.0 · Stay Sharp. Stay Ready.</div>
+    <div class="footer-version">v1.0 · Never Stop Learning.</div>
   </div>
 
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('xm-theme', theme);
+      toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    // Set icon to match current theme
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    toggle.textContent = current === 'dark' ? '☀️' : '🌙';
+    toggle.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+  </script>
 </body>
 </html>

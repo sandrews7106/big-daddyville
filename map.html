@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
@@ -7,6 +7,13 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
   <title>Big Daddyville — XpressoMedic</title>
   <link rel="stylesheet" href="css/style.css"/>
+  <script>
+    (function() {
+      const saved = localStorage.getItem('xm-theme') ||
+        (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
 </head>
 <body>
 
@@ -20,6 +27,7 @@
       <div class="header-sub">XpressoMedic EMS Training</div>
     </div>
     <div class="header-badge" id="levelBadge">EMT-B</div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀️</button>
   </div>
 
   <div class="map-layout">
@@ -56,12 +64,12 @@
 
         <defs>
           <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#141e2a" stroke-width="0.5"/>
+            <path id="gridPath" d="M 40 0 L 0 0 0 40" fill="none" stroke="#141e2a" stroke-width="0.5"/>
           </pattern>
         </defs>
 
         <!-- Ground -->
-        <rect width="960" height="620" fill="#0d1420"/>
+        <rect id="svgGround" width="960" height="620" fill="#0d1420"/>
         <rect width="960" height="620" fill="url(#grid)" opacity="0.4"/>
 
         <!-- Districts -->
@@ -226,5 +234,157 @@
 <script src="js/scenarios-aemt.js"></script>
 <script src="js/scenarios-medic.js"></script>
 <script src="js/map.js"></script>
+<script>
+  const themeToggle = document.getElementById('themeToggle');
+
+  const svgDark = {
+    ground:      '#0d1420',
+    grid:        '#141e2a',
+    mainRoad:    '#2a3a4a',
+    mainRoadLine:'#3a5068',
+    roadLabel:   '#4a6280',
+    sideRoad:    '#1e2f3e',
+    sideLabel:   '#2a4a62',
+    block:       '#111820',
+    intersection:'#1a2a3a',
+    intersectionSm:'#151f2a',
+    parkOuter:   '#0e2a14',
+    parkInner:   '#0a2010',
+    parkLabel:   '#2a8a3a',
+    parkRing:    '#1a4a1a',
+    pondFill:    '#0a1a2e',
+    pondInner:   '#0d2040',
+    pondLabel:   '#1a4a6a',
+    districtN:   '#1a2510',
+    districtS:   '#1a1510',
+    districtE:   '#1a1520',
+    districtTextN:'#2a3a1a',
+    districtTextS:'#2a2015',
+    districtTextE:'#2a1a2a',
+    fountainBg:  '#0a1a2a',
+    fountainStroke:'#1a4a6a',
+    pinShadow:   'rgba(0,0,0,0.35)',
+    pinStroke:   'rgba(0,0,0,0.4)',
+  };
+
+  const svgLight = {
+    ground:      '#e8dfc8',
+    grid:        '#c8bfaa',
+    mainRoad:    '#b8a888',
+    mainRoadLine:'#a09070',
+    roadLabel:   '#6a5a40',
+    sideRoad:    '#c4b898',
+    sideLabel:   '#8a7a60',
+    block:       '#d8ceb8',
+    intersection:'#c8bea8',
+    intersectionSm:'#d0c8b0',
+    parkOuter:   '#b8d8a0',
+    parkInner:   '#c8e8b0',
+    parkLabel:   '#2a6a1a',
+    parkRing:    '#4a9a2a',
+    pondFill:    '#a0c8e8',
+    pondInner:   '#b8d8f0',
+    pondLabel:   '#2a6a9a',
+    districtN:   '#c8d8b0',
+    districtS:   '#d8c8a8',
+    districtE:   '#c8c0d8',
+    districtTextN:'#4a6a2a',
+    districtTextS:'#6a5020',
+    districtTextE:'#4a3a6a',
+    fountainBg:  '#b0d0e8',
+    fountainStroke:'#4a8ab0',
+    pinShadow:   'rgba(0,0,0,0.15)',
+    pinStroke:   'rgba(0,0,0,0.2)',
+  };
+
+  function applyMapTheme(theme) {
+    const c = theme === 'dark' ? svgDark : svgLight;
+
+    // Ground & grid
+    const ground = document.getElementById('svgGround');
+    if (ground) ground.setAttribute('fill', c.ground);
+    const gridPath = document.getElementById('gridPath');
+    if (gridPath) gridPath.setAttribute('stroke', c.grid);
+
+    // Roads - main
+    document.querySelectorAll('line').forEach(l => {
+      const sw = l.getAttribute('stroke-width');
+      const sd = l.getAttribute('stroke-dasharray');
+      if (sw === '28')   l.setAttribute('stroke', c.mainRoad);
+      else if (sd && sw === '1.5') l.setAttribute('stroke', c.mainRoadLine);
+      else if (sw === '10') l.setAttribute('stroke', c.sideRoad);
+    });
+
+    // Road text labels
+    document.querySelectorAll('text').forEach(t => {
+      const f = t.getAttribute('fill');
+      if (f === '#4a6280' || f === svgDark.roadLabel || f === svgLight.roadLabel)
+        t.setAttribute('fill', c.roadLabel);
+      else if (f === '#2a4a62' || f === svgDark.sideLabel || f === svgLight.sideLabel)
+        t.setAttribute('fill', c.sideLabel);
+      else if (f === '#2a8a3a' || f === svgDark.parkLabel || f === svgLight.parkLabel)
+        t.setAttribute('fill', c.parkLabel);
+      else if (f === '#1a4a6a' || f === svgDark.pondLabel || f === svgLight.pondLabel)
+        t.setAttribute('fill', c.pondLabel);
+      else if (f === '#2a3a1a' || f === svgDark.districtTextN || f === svgLight.districtTextN)
+        t.setAttribute('fill', c.districtTextN);
+      else if (f === '#2a2015' || f === svgDark.districtTextS || f === svgLight.districtTextS)
+        t.setAttribute('fill', c.districtTextS);
+      else if (f === '#2a1a2a' || f === svgDark.districtTextE || f === svgLight.districtTextE)
+        t.setAttribute('fill', c.districtTextE);
+    });
+
+    // Blocks and district rects
+    document.querySelectorAll('rect').forEach(r => {
+      const f = r.getAttribute('fill');
+      if (f === '#111820') r.setAttribute('fill', c.block);
+      else if (f === '#1a2510') r.setAttribute('fill', c.districtN);
+      else if (f === '#1a1510') r.setAttribute('fill', c.districtS);
+      else if (f === '#1a1520') r.setAttribute('fill', c.districtE);
+      else if (f === '#0e2a14') r.setAttribute('fill', c.parkOuter);
+      else if (f === '#0a2010') r.setAttribute('fill', c.parkInner);
+    });
+
+    // Intersection circles
+    document.querySelectorAll('circle:not(.pin-ring):not(.pin-circle)').forEach(circ => {
+      const f = circ.getAttribute('fill');
+      if (f === '#1a2a3a') circ.setAttribute('fill', c.intersection);
+      else if (f === '#151f2a') circ.setAttribute('fill', c.intersectionSm);
+      else if (f === '#0a1a2a') circ.setAttribute('fill', c.fountainBg);
+      else if (f && f.startsWith('rgba(0,0,0')) circ.setAttribute('fill', c.pinShadow);
+    });
+
+    // Park ellipses
+    document.querySelectorAll('ellipse').forEach(el => {
+      const f = el.getAttribute('fill');
+      const s = el.getAttribute('stroke');
+      if (f === 'none' && s === '#1a4a1a') el.setAttribute('stroke', c.parkRing);
+      else if (f === '#0a1a2e') el.setAttribute('fill', c.pondFill);
+      else if (f === '#0d2040') el.setAttribute('fill', c.pondInner);
+    });
+
+    // Pin shadow strokes
+    document.querySelectorAll('.pin-circle').forEach(pc => {
+      pc.setAttribute('stroke', c.pinStroke);
+    });
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('xm-theme', theme);
+    themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    applyMapTheme(theme);
+  }
+
+  const current = document.documentElement.getAttribute('data-theme') || 'dark';
+  themeToggle.textContent = current === 'dark' ? '☀️' : '🌙';
+  // Apply map colors on load too
+  window.addEventListener('DOMContentLoaded', () => applyMapTheme(current));
+
+  themeToggle.addEventListener('click', () => {
+    const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+  });
+</script>
 </body>
 </html>
