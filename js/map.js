@@ -218,7 +218,18 @@ function loadScenario(loc, next) {
         <span class="reveal-chevron">▶</span>
       </button>
       <div class="reveal-content" id="con-patient">
-        <div class="content-text">${s.patient_info}</div>
+        ${s.patient_info.includes('|') ?
+          s.patient_info.split('|').map(line => {
+            const colonIdx = line.indexOf(':');
+            if (colonIdx > -1) {
+              const label = line.substring(0, colonIdx).trim();
+              const value = line.substring(colonIdx + 1).trim();
+              return `<div style="margin-bottom:8px"><div class="content-label">${label}</div><div class="content-text">${value}</div></div>`;
+            }
+            return `<div class="content-text" style="margin-bottom:6px">${line.trim()}</div>`;
+          }).join('')
+          : `<div class="content-text">${s.patient_info}</div>`
+        }
       </div>
     </div>
 
