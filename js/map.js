@@ -19,8 +19,8 @@ const SCENARIOS_ACTIVE = SCENARIO_MAP[level] || SCENARIO_MAP.emtb;
 // Update badge
 const badge = document.getElementById('levelBadge');
 if (badge) {
-  const labels = { emtb:'EMT-B', aemt:'AEMT', medic:'Paramedic' };
-  badge.textContent = labels[level] || 'EMT-B';
+  const labels = { emtb:'EMT', aemt:'AEMT', medic:'Paramedic' };
+  badge.textContent = labels[level] || 'EMT';
   badge.className   = 'header-badge ' + level;
 }
 
@@ -36,7 +36,7 @@ const locations = [
   { id:'bd_nursing',  name:"Grand-daddy's Nursing & Rehab", addr:"750 Crown St",          cat:'health', icon:'🏥', tagline:"Round-the-Clock Care"  },
   { id:'bd_grocery',  name:"Big Daddy's Food King",        addr:"180 Big Daddy Blvd", cat:'retail', icon:'🛒', tagline:"Everything You Need & Then Some" },
   { id:'bd_mhp',     name:"Big Daddy's Mobile Home Park",  addr:"200 Papa Drive",       cat:'school', icon:'🏠', tagline:"Home Is Where The Call Is"  },
-  { id:'bd_pawn',     name:"Big Daddy's Pawn & Gold",      addr:"480 Big Daddy Blvd", cat:'retail', icon:'💍', tagline:"We Buy, Sell & Ask No Questions" },
+  { id:'bd_hospital',  name:"Big Daddy Regional Medical Center", addr:"480 Big Daddy Blvd", cat:'health', icon:'🏥', tagline:"Where Big Daddyville Gets Better" },
   { id:'bd_pharmacy', name:"Big Daddy's Rx Pharmacy",      addr:"240 Crown St N",      cat:'health', icon:'💊', tagline:"Pills, Patience & Wisdom" },
   { id:'bd_cbd',      name:"Big Daddy's CBD & Wellness",   addr:"310 Throne Ave",      cat:'health', icon:'🌿', tagline:"Relax. Legally." },
   { id:'bd_smoke',    name:"Big Daddy's Smoke Shack",      addr:"330 Throne Ave",      cat:'health', icon:'💨', tagline:"Vapes, Tobacco & Bad Decisions" },
@@ -45,7 +45,7 @@ const locations = [
   { id:'bd_auto',     name:"Big Daddy's Auto Repair",      addr:"820 Big Daddy Blvd", cat:'auto',   icon:'🔧', tagline:"We Fix It. Eventually." },
   { id:'bd_club',     name:"Big Daddy's Gentleman's Club", addr:"730 Crown St",        cat:'adult',  icon:'🎭', tagline:"Discretion Is Our Middle Name" },
   { id:'bd_bar',      name:"Big Daddy's Tap Room",         addr:"370 Big Daddy Blvd", cat:'adult',  icon:'🍺', tagline:"Cold Beer, Warm Arguments" },
-  { id:'bd_liquor',   name:"Big Daddy's Liquors",          addr:"580 Crown St",        cat:'adult',  icon:'🥃', tagline:"Take the Edge Off" },
+  { id:'bd_estates',  name:"Big Daddy Estates",             addr:"580 Crown St",        cat:'school', icon:'🏡', tagline:"Home Is Where the Call Is" },
   { id:'bd_motel',    name:"Big Daddy's Motor Inn",        addr:"99 Papa Drive",       cat:'hotel',  icon:'🏨', tagline:"Hourly & Weekly Rates Available" },
   { id:'bd_suites',   name:"Big Daddy Suites",             addr:"840 Crown St",        cat:'hotel',  icon:'🏩', tagline:"Extended Stay. Extended Problems." },
   { id:'bd_fire',     name:"Big Daddy Fire Station 1",     addr:"500 Throne Ave",      cat:'fire',   icon:'🚒', tagline:"Home Base" },
@@ -140,6 +140,7 @@ const reveals = ['scene', 'patient', 'vitals', 'findings', 'teaching'];
 
 function loadScenario(loc, next) {
   activeLoc = loc;
+  window.activeLoc = loc;
   hidePopup();
 
   // Highlight active pin
@@ -312,13 +313,5 @@ window.loadScenario  = loadScenario;
 window.toggleReveal  = toggleReveal;
 window.revealAll     = revealAll;
 window.resetReveals  = resetReveals;
-window.activeLoc     = activeLoc;
-
-// Keep activeLoc in sync
-const _origLoad = loadScenario;
-window.loadScenario = function(loc, next) {
-  _origLoad(loc, next);
-  window.activeLoc = activeLoc;
-};
 
 })();
