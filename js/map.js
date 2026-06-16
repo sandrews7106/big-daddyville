@@ -136,7 +136,7 @@ function hidePopup() {
 // ── SCENARIO DISPLAY ────────────────────────────────────────
 const wrap    = document.getElementById('scenarioWrap');
 let activeLoc = null;
-const reveals = ['scene', 'patient', 'vitals', 'findings', 'teaching'];
+const reveals = ['scene', 'patient', 'vitals', 'treatment', 'teaching'];
 
 function loadScenario(loc, next) {
   activeLoc = loc;
@@ -193,15 +193,19 @@ function loadScenario(loc, next) {
       <button class="reveal-btn" onclick="toggleReveal('scene')" id="btn-scene">
         <div class="reveal-btn-left">
           <span class="reveal-btn-icon">🚨</span>
-          <div><div class="reveal-btn-label">Scene Size-Up &amp; Chief Complaint</div><div class="reveal-btn-sub">Click to reveal</div></div>
+          <div><div class="reveal-btn-label">Scene Size-Up &amp; Primary Survey</div><div class="reveal-btn-sub">General impression · XABC · Patient priority</div></div>
         </div>
         <span class="reveal-chevron">▶</span>
       </button>
       <div class="reveal-content" id="con-scene">
         <div class="content-label">Chief Complaint</div>
         <div class="content-value" style="margin-bottom:10px">${s.chief_complaint}</div>
-        <div class="content-label">Scene Description</div>
-        <div class="content-text">${s.scene_description}</div>
+        <div class="content-label">Scene Size-Up &amp; Primary Survey</div>
+        <div class="content-text" style="margin-bottom:10px">${s.scene_description}</div>
+        <div class="content-label">General Impression</div>
+        <div class="content-value" style="margin-bottom:10px">${s.general_impression || '—'}</div>
+        <div class="content-label">Patient Priority</div>
+        <div class="content-value" style="color:${(s.priority || '').toLowerCase().includes('high') ? 'var(--red)' : 'var(--green)'}">${s.priority || '—'}</div>
       </div>
     </div>
 
@@ -209,7 +213,7 @@ function loadScenario(loc, next) {
       <button class="reveal-btn" onclick="toggleReveal('patient')" id="btn-patient">
         <div class="reveal-btn-left">
           <span class="reveal-btn-icon">👤</span>
-          <div><div class="reveal-btn-label">Patient Information</div><div class="reveal-btn-sub">Age, sex, PMH</div></div>
+          <div><div class="reveal-btn-label">Patient Information</div><div class="reveal-btn-sub">OPQRST · SAMPLE · PMH · Meds · Allergies</div></div>
         </div>
         <span class="reveal-chevron">▶</span>
       </button>
@@ -238,16 +242,16 @@ function loadScenario(loc, next) {
       </div>
     </div>
 
-    <div class="reveal-section" id="sec-findings">
-      <button class="reveal-btn" onclick="toggleReveal('findings')" id="btn-findings">
+    <div class="reveal-section" id="sec-treatment">
+      <button class="reveal-btn" onclick="toggleReveal('treatment')" id="btn-treatment">
         <div class="reveal-btn-left">
-          <span class="reveal-btn-icon">🔍</span>
-          <div><div class="reveal-btn-label">Pertinent Findings</div><div class="reveal-btn-sub">Physical exam, positives &amp; negatives</div></div>
+          <span class="reveal-btn-icon">🩺</span>
+          <div><div class="reveal-btn-label">Treatment</div><div class="reveal-btn-sub">Within scope · Interventions · Transport decision</div></div>
         </div>
         <span class="reveal-chevron">▶</span>
       </button>
-      <div class="reveal-content" id="con-findings">
-        <div class="content-text">${s.pertinent_findings}</div>
+      <div class="reveal-content" id="con-treatment">
+        <div class="content-text">${s.treatment || '—'}</div>
       </div>
     </div>
 
