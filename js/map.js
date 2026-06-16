@@ -199,13 +199,15 @@ function loadScenario(loc, next) {
       </button>
       <div class="reveal-content" id="con-scene">
         <div class="content-label">Chief Complaint</div>
-        <div class="content-value" style="margin-bottom:10px">${s.chief_complaint}</div>
+        <div class="content-value" style="margin-bottom:12px">${s.chief_complaint}</div>
         <div class="content-label">Scene Size-Up &amp; Primary Survey</div>
-        <div class="content-text" style="margin-bottom:10px">${s.scene_description}</div>
+        <div class="content-text" style="margin-bottom:12px">${s.scene_description}</div>
+        ${s.general_impression ? `
         <div class="content-label">General Impression</div>
-        <div class="content-value" style="margin-bottom:10px">${s.general_impression || '—'}</div>
+        <div class="content-text" style="margin-bottom:12px">${s.general_impression}</div>` : ''}
+        ${s.priority ? `
         <div class="content-label">Patient Priority</div>
-        <div class="content-value" style="color:${(s.priority || '').toLowerCase().includes('high') ? 'var(--red)' : 'var(--green)'}">${s.priority || '—'}</div>
+        <div style="display:inline-block;padding:5px 12px;border-radius:8px;font-weight:700;font-size:0.78rem;letter-spacing:0.5px;margin-top:2px;background:${s.priority.toLowerCase().includes('high') ? 'rgba(233,69,96,0.15)' : 'rgba(46,160,67,0.15)'};color:${s.priority.toLowerCase().includes('high') ? 'var(--red)' : 'var(--green)'};border:1px solid ${s.priority.toLowerCase().includes('high') ? 'rgba(233,69,96,0.3)' : 'rgba(46,160,67,0.3)'}">${s.priority}</div>` : ''}
       </div>
     </div>
 
@@ -262,7 +264,14 @@ function loadScenario(loc, next) {
         <span class="reveal-chevron">▶</span>
       </button>
       <div class="reveal-content" id="con-treatment">
-        <div class="content-text">${s.treatment || '—'}</div>
+        ${s.treatment && s.treatment !== '—'
+          ? s.treatment.split(/\d+\.\s+/).filter(t => t.trim().length > 0).map(t => `
+            <div style="display:flex;gap:10px;margin-bottom:8px;align-items:flex-start">
+              <span style="color:var(--gold);font-size:1rem;flex-shrink:0;margin-top:1px">•</span>
+              <div class="content-text" style="margin:0">${t.trim()}</div>
+            </div>`).join('')
+          : '<div class="content-text">—</div>'
+        }
       </div>
     </div>
 
