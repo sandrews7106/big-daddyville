@@ -136,7 +136,7 @@ function hidePopup() {
 // ── SCENARIO DISPLAY ────────────────────────────────────────
 const wrap    = document.getElementById('scenarioWrap');
 let activeLoc = null;
-const reveals = ['scene', 'patient', 'vitals', 'treatment', 'teaching'];
+const reveals = ['scene', 'patient', 'vitals', 'findings', 'teaching'];
 
 function loadScenario(loc, next) {
   activeLoc = loc;
@@ -226,9 +226,12 @@ function loadScenario(loc, next) {
             if (colonIdx > -1) {
               const label = line.substring(0, colonIdx).trim();
               const value = line.substring(colonIdx + 1).trim();
-              return `<div style="margin-bottom:8px"><div class="content-label">${label}</div><div class="content-text">${value}</div></div>`;
+              return `<div style="margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border)">
+                <div style="font-size:0.6rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:3px">${label}</div>
+                <div style="font-size:0.8rem;color:var(--text);line-height:1.6">${value}</div>
+              </div>`;
             }
-            return `<div class="content-text" style="margin-bottom:6px">${line.trim()}</div>`;
+            return `<div style="font-size:0.8rem;color:var(--text);margin-bottom:6px">${line.trim()}</div>`;
           }).join('')
           : `<div class="content-text">${s.patient_info}</div>`
         }
@@ -255,23 +258,16 @@ function loadScenario(loc, next) {
       </div>
     </div>
 
-    <div class="reveal-section" id="sec-treatment">
-      <button class="reveal-btn" onclick="toggleReveal('treatment')" id="btn-treatment">
+    <div class="reveal-section" id="sec-findings">
+      <button class="reveal-btn" onclick="toggleReveal('findings')" id="btn-findings">
         <div class="reveal-btn-left">
-          <span class="reveal-btn-icon">🩺</span>
-          <div><div class="reveal-btn-label">Treatment</div><div class="reveal-btn-sub">Within scope · Interventions · Transport decision</div></div>
+          <span class="reveal-btn-icon">🔍</span>
+          <div><div class="reveal-btn-label">Pertinent Findings</div><div class="reveal-btn-sub">Physical exam · Positives &amp; negatives</div></div>
         </div>
         <span class="reveal-chevron">▶</span>
       </button>
-      <div class="reveal-content" id="con-treatment">
-        ${s.treatment && s.treatment !== '—'
-          ? s.treatment.split(/\d+\.\s+/).filter(t => t.trim().length > 0).map(t => `
-            <div style="display:flex;gap:10px;margin-bottom:8px;align-items:flex-start">
-              <span style="color:var(--gold);font-size:1rem;flex-shrink:0;margin-top:1px">•</span>
-              <div class="content-text" style="margin:0">${t.trim()}</div>
-            </div>`).join('')
-          : '<div class="content-text">—</div>'
-        }
+      <div class="reveal-content" id="con-findings">
+        <div class="content-text">${s.pertinent_findings || s.patient_info}</div>
       </div>
     </div>
 
@@ -279,11 +275,21 @@ function loadScenario(loc, next) {
       <button class="reveal-btn" onclick="toggleReveal('teaching')" id="btn-teaching">
         <div class="reveal-btn-left">
           <span class="reveal-btn-icon">🎓</span>
-          <div><div class="reveal-btn-label">Teaching Points</div><div class="reveal-btn-sub">Debrief after student answers</div></div>
+          <div><div class="reveal-btn-label">Teaching Points</div><div class="reveal-btn-sub">Expected treatment · Debrief · Discussion</div></div>
         </div>
         <span class="reveal-chevron">▶</span>
       </button>
       <div class="reveal-content" id="con-teaching">
+        ${s.treatment ? `
+        <div style="margin-bottom:14px">
+          <div style="font-size:0.6rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:8px">Expected Treatment</div>
+          ${s.treatment.split(/\d+\.\s*/).filter(t => t.trim().length > 0).map(t => `
+            <div style="display:flex;gap:10px;margin-bottom:8px;align-items:flex-start">
+              <span style="color:var(--gold);font-size:1.1rem;flex-shrink:0;line-height:1.3">•</span>
+              <div style="font-size:0.78rem;color:var(--text);line-height:1.65">${t.trim()}</div>
+            </div>`).join('')}
+          <div style="border-bottom:1px solid var(--border);margin:12px 0"></div>
+        </div>` : ''}
         <div class="teaching-block">
           ${tpParts.map((tp, i) => `
             <div class="tp-item">
