@@ -19,8 +19,8 @@ const SCENARIOS_ACTIVE = SCENARIO_MAP[level] || SCENARIO_MAP.emtb;
 // Update badge
 const badge = document.getElementById('levelBadge');
 if (badge) {
-  const labels = { emtb:'EMT-B', aemt:'AEMT', medic:'Paramedic' };
-  badge.textContent = labels[level] || 'EMT-B';
+  const labels = { emtb:'EMT', aemt:'AEMT', medic:'Paramedic' };
+  badge.textContent = labels[level] || 'EMT';
   badge.className   = 'header-badge ' + level;
 }
 
