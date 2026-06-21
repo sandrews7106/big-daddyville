@@ -7,6 +7,13 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
   <title>XpressoMedic Scenarios</title>
   <link rel="stylesheet" href="css/style.css"/>
+  <script>
+    (function() {
+      const saved = localStorage.getItem('xm-theme') ||
+        (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
   <style>
     /* ── HOME SCREEN OVERRIDES ── */
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,14 +44,39 @@
       align-items: center;
       gap: 0;
       flex-shrink: 0;
+      position: relative;
     }
 
+    /* Dark mode — invert to white with gold glow */
     .header-logo {
       width: 140px;
       height: 140px;
       object-fit: contain;
-      filter: drop-shadow(0 0 16px rgba(240,192,64,0.25));
+      filter: brightness(0) invert(1) drop-shadow(0 0 16px rgba(240,192,64,0.35));
     }
+    /* Light mode — natural colors */
+    [data-theme="light"] .header-logo {
+      filter: drop-shadow(0 0 12px rgba(240,192,64,0.2));
+    }
+
+    /* THEME TOGGLE */
+    .theme-toggle-home {
+      position: absolute;
+      top: calc(env(safe-area-inset-top, 0px) + 16px);
+      right: 16px;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.5);
+      font-size: 1.1rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .theme-toggle-home:active { background: rgba(128,128,128,0.15); }
 
     /* BODY */
     .home-body {
@@ -209,6 +241,7 @@
 
   <!-- HEADER -->
   <div class="home-header">
+    <button class="theme-toggle-home" id="themeToggle" aria-label="Toggle theme">☀️</button>
     <img src="images/xpresso-circle.png" alt="XpressoMedic" class="header-logo"/>
   </div>
 
@@ -231,7 +264,7 @@
         <div class="level-letter-icon aemt-icon">A</div>
         <div class="level-info">
           <div class="level-name">AEMT</div>
-          <div class="level-desc">IV/IO · 12-lead · SGLs · Advanced medications</div>
+          <div class="level-desc">IV/IO · 12-lead · Advanced airways · Cardiac drugs</div>
           <div class="level-count">116 scenarios · 29 locations</div>
         </div>
       </a>
@@ -241,7 +274,7 @@
         <div class="level-letter-icon medic-icon">P</div>
         <div class="level-info">
           <div class="level-name">Paramedic</div>
-          <div class="level-desc">Full ALS · RSI · STEMI · Vasopressors · Trauma</div>
+          <div class="level-desc">Full ALS · RSI · STEMI · Vasopressors · Critical care</div>
           <div class="level-count">116 scenarios · 29 locations</div>
         </div>
       </a>
@@ -262,5 +295,21 @@
     <div class="footer-version">v1.0.1 · Never Stop Learning</div>
   </div>
 
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('xm-theme', theme);
+      document.body.style.background = theme === 'dark' ? '#0d1117' : '#f5f0e8';
+      document.body.style.color = theme === 'dark' ? '#e6edf3' : '#1c1a16';
+      toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    applyTheme(current);
+    toggle.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+  </script>
 </body>
 </html>
