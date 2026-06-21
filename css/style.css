@@ -670,6 +670,67 @@ svg#town {
 .btn-random { background: linear-gradient(135deg,#1a3a5a,#1e4070); color: var(--gold); border: 1px solid #2a5a8a; }
 .btn-reset  { background: rgba(233,69,96,0.12); color: var(--red); border: 1px solid rgba(233,69,96,0.3); }
 
+
+/* ── PRIMARY SURVEY STRUCTURED ROWS ─────────────────────── */
+.ps-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ps-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 7px 10px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 7px;
+  border-left: 3px solid rgba(255,255,255,0.08);
+}
+.ps-icon {
+  font-size: 0.9rem;
+  min-width: 20px;
+  margin-top: 2px;
+}
+.ps-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+.ps-label {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ps-value {
+  font-size: 0.76rem;
+  color: #c8d8e8;
+  line-height: 1.5;
+}
+
+/* ── PATIENT PRIORITY BADGE ──────────────────────────────── */
+.priority-badge {
+  display: inline-block;
+  padding: 4px 13px;
+  border-radius: 20px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+.priority-high {
+  background: rgba(231,76,60,0.15);
+  color: #e74c3c;
+  border: 1px solid rgba(231,76,60,0.35);
+}
+.priority-low {
+  background: rgba(46,160,67,0.15);
+  color: #2ea043;
+  border: 1px solid rgba(46,160,67,0.3);
+}
+
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 @media (max-width: 768px) {
   .map-layout { flex-direction: column; overflow: auto; }
