@@ -116,6 +116,18 @@
   background: var(--bg);
 }
 
+/* Light mode content text overrides */
+[data-theme="light"] .content-text    { color: #3a3530; }
+[data-theme="light"] .content-value   { color: #1c1a16; }
+[data-theme="light"] .content-label   { color: #6b6560; }
+[data-theme="light"] .ps-value        { color: #2a2520; }
+[data-theme="light"] .ps-label        { color: #6b6560; }
+[data-theme="light"] .ps-row          { background: rgba(0,0,0,0.04); border-left-color: rgba(0,0,0,0.12); }
+[data-theme="light"] .tp-text         { color: #2a5a2a; }
+[data-theme="light"] .reveal-btn-label { color: #1c1a16; }
+[data-theme="light"] .reveal-btn-sub  { color: #6b6560; }
+[data-theme="light"] .priority-question { color: #4b5563; border-color: rgba(75,85,99,0.4); background: rgba(75,85,99,0.08); }
+
 /* ── THEME TOGGLE BUTTON ─────────────────────────────────── */
 .theme-toggle {
   background: none;
