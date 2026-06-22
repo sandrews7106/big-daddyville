@@ -4,24 +4,12 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
   <title>XpressoMedic Scenarios</title>
   <link rel="stylesheet" href="css/style.css"/>
-  <script>
-    (function() {
-      const saved = localStorage.getItem('xm-theme') ||
-        (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-      document.documentElement.setAttribute('data-theme', saved);
-    })();
-  </script>
   <style>
     /* ── HOME SCREEN OVERRIDES ── */
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html, body {
-      overflow-y: auto !important;
-      height: auto !important;
-    }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -44,39 +32,14 @@
       align-items: center;
       gap: 0;
       flex-shrink: 0;
-      position: relative;
     }
 
-    /* Dark mode — invert to white with gold glow */
     .header-logo {
       width: 140px;
       height: 140px;
       object-fit: contain;
-      filter: brightness(0) invert(1) drop-shadow(0 0 16px rgba(240,192,64,0.35));
+      filter: drop-shadow(0 0 16px rgba(240,192,64,0.25));
     }
-    /* Light mode — natural colors */
-    [data-theme="light"] .header-logo {
-      filter: drop-shadow(0 0 12px rgba(240,192,64,0.2));
-    }
-
-    /* THEME TOGGLE */
-    .theme-toggle-home {
-      position: absolute;
-      top: calc(env(safe-area-inset-top, 0px) + 16px);
-      right: 16px;
-      background: none;
-      border: 1px solid rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.5);
-      font-size: 1.1rem;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .theme-toggle-home:active { background: rgba(128,128,128,0.15); }
 
     /* BODY */
     .home-body {
@@ -86,6 +49,25 @@
       align-items: center;
       padding: 28px 20px 20px;
       gap: 0;
+    }
+
+    .home-title {
+      font-family: 'Bebas Neue', 'Impact', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 4px;
+      color: #f0c040;
+      text-align: center;
+      margin-bottom: 8px;
+      text-shadow: 0 0 20px rgba(240,192,64,0.3);
+    }
+
+    .home-subtitle {
+      font-size: 0.78rem;
+      color: #7d8590;
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 28px;
+      max-width: 320px;
     }
 
     /* LEVEL CARDS */
@@ -131,6 +113,25 @@
 
     .level-card:active { transform: scale(0.98); }
 
+    /* SVG icon container */
+    .level-svg-icon {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+    }
+    .level-card.emtb  .level-svg-icon { background: rgba(46,160,67,0.15); }
+    .level-card.aemt  .level-svg-icon { background: rgba(56,139,253,0.15); }
+    .level-card.medic .level-svg-icon { background: rgba(233,69,96,0.15); }
+
+    .level-svg-icon svg {
+      width: 26px;
+      height: 26px;
+    }
+
     .level-info { flex: 1; }
 
     .level-name {
@@ -161,23 +162,6 @@
     .level-card.emtb  .level-count { color: #2ea043; }
     .level-card.aemt  .level-count { color: #388bfd; }
     .level-card.medic .level-count { color: #e94560; }
-
-    /* LETTER ICONS */
-    .level-letter-icon {
-      width: 44px;
-      height: 44px;
-      flex-shrink: 0;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Bebas Neue', 'Impact', sans-serif;
-      font-size: 1.5rem;
-      letter-spacing: 1px;
-    }
-    .emtb-icon  { background: rgba(46,160,67,0.2);  color: #4ade80; border: 1px solid rgba(46,160,67,0.4); }
-    .aemt-icon  { background: rgba(56,139,253,0.2); color: #7ab8f5; border: 1px solid rgba(56,139,253,0.4); }
-    .medic-icon { background: rgba(233,69,96,0.2);  color: #f87171; border: 1px solid rgba(233,69,96,0.4); }
 
     /* FOOTER */
     .home-footer {
@@ -235,47 +219,130 @@
       letter-spacing: 1px;
       text-transform: uppercase;
     }
+
+    /* ── LIGHT MODE ── */
+    @media (prefers-color-scheme: light) {
+      body {
+        background: #f5f0e8;
+        color: #1a1a2e;
+      }
+
+      .home-header {
+        background: linear-gradient(180deg, #ede8dc 0%, #f5f0e8 100%);
+        border-bottom-color: rgba(240,192,64,0.3);
+      }
+
+      .home-body {
+        background: #f5f0e8;
+      }
+
+      .home-subtitle {
+        color: #5a6578;
+      }
+
+      .level-card {
+        background: linear-gradient(135deg, #ffffff, #f0ece4);
+        color: #1a1a2e;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+      }
+
+      .level-card.emtb  { border-color: rgba(46,160,67,0.4); }
+      .level-card.aemt  { border-color: rgba(56,139,253,0.4); }
+      .level-card.medic { border-color: rgba(233,69,96,0.4); }
+
+      .level-card.emtb  .level-svg-icon { background: rgba(46,160,67,0.12); }
+      .level-card.aemt  .level-svg-icon { background: rgba(56,139,253,0.12); }
+      .level-card.medic .level-svg-icon { background: rgba(233,69,96,0.12); }
+
+      .level-card.emtb  .level-name { color: #1a7a35; }
+      .level-card.aemt  .level-name { color: #1a5cb8; }
+      .level-card.medic .level-name { color: #c0293e; }
+
+      .level-desc { color: #4a5568; }
+
+      .level-count { opacity: 1; }
+      .level-card.emtb  .level-count { color: #1a7a35; }
+      .level-card.aemt  .level-count { color: #1a5cb8; }
+      .level-card.medic .level-count { color: #c0293e; }
+
+      .home-footer {
+        background: linear-gradient(180deg, #ede8dc 0%, #e5dfd4 100%);
+        border-top-color: rgba(240,192,64,0.3);
+      }
+
+      .footer-logo-img {
+        filter: none;
+        opacity: 1;
+      }
+
+      .footer-divider { background: rgba(0,0,0,0.15); }
+
+      .footer-sub { color: #5a6578; }
+
+      .footer-version { color: #8a95a0; }
+    }
   </style>
 </head>
 <body>
 
   <!-- HEADER -->
   <div class="home-header">
-    <button class="theme-toggle-home" id="themeToggle" aria-label="Toggle theme">☀️</button>
     <img src="images/xpresso-circle.png" alt="XpressoMedic" class="header-logo"/>
   </div>
 
   <!-- BODY -->
   <div class="home-body">
+
     <div class="level-cards">
 
-      <!-- EMT -->
+      <!-- EMT-Basic -->
       <a class="level-card emtb" href="map.html?level=emtb">
-        <div class="level-letter-icon emtb-icon">E</div>
+        <div class="level-svg-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Medical cross -->
+            <rect x="9" y="2" width="6" height="20" rx="2" fill="#2ea043"/>
+            <rect x="2" y="9" width="20" height="6" rx="2" fill="#2ea043"/>
+          </svg>
+        </div>
         <div class="level-info">
-          <div class="level-name">EMT</div>
+          <div class="level-name">EMT — Basic</div>
           <div class="level-desc">BLS scope · Airway, trauma, medical, OB &amp; peds</div>
-          <div class="level-count">116 scenarios · 29 locations</div>
+          <div class="level-count">108 scenarios · 27 locations</div>
         </div>
       </a>
 
       <!-- AEMT -->
       <a class="level-card aemt" href="map.html?level=aemt">
-        <div class="level-letter-icon aemt-icon">A</div>
+        <div class="level-svg-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- IV drip bag -->
+            <path d="M12 2C9.8 2 8 3.8 8 6v1H6a1 1 0 000 2h1v1c0 3.9 2.9 7.1 6.7 7.5L13 20h-2a1 1 0 000 2h6a1 1 0 000-2h-2l-.7-2.5C18.1 17.1 21 13.9 21 10V9h1a1 1 0 000-2h-2V6c0-2.2-1.8-4-4-4h-4zm0 2h4c1.1 0 2 .9 2 2v1H10V6c0-1.1.9-2 2-2z" fill="#388bfd"/>
+            <circle cx="12" cy="13" r="1.5" fill="#388bfd"/>
+            <line x1="12" y1="14.5" x2="12" y2="19" stroke="#388bfd" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
         <div class="level-info">
           <div class="level-name">AEMT</div>
           <div class="level-desc">IV/IO · 12-lead · Advanced airways · Cardiac drugs</div>
-          <div class="level-count">116 scenarios · 29 locations</div>
+          <div class="level-count">108 scenarios · 27 locations</div>
         </div>
       </a>
 
       <!-- Paramedic -->
       <a class="level-card medic" href="map.html?level=medic">
-        <div class="level-letter-icon medic-icon">P</div>
+        <div class="level-svg-icon">
+          <!-- Star of Life -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2l1.8 3.6L17.5 4l-1 4 4 1-2.8 2.8 2 3.7-4-.5L14 19l-2-3.5L10 19l-1.7-4.5-4 .5 2-3.7L3.5 9l4-1-1-4 3.7 1.6z" fill="#e94560"/>
+            <circle cx="12" cy="11" r="2.5" fill="white"/>
+            <rect x="11.2" y="8" width="1.6" height="6" rx="0.8" fill="#e94560"/>
+            <rect x="9" y="10.2" width="6" height="1.6" rx="0.8" fill="#e94560"/>
+          </svg>
+        </div>
         <div class="level-info">
           <div class="level-name">Paramedic</div>
           <div class="level-desc">Full ALS · RSI · STEMI · Vasopressors · Critical care</div>
-          <div class="level-count">116 scenarios · 29 locations</div>
+          <div class="level-count">108 scenarios · 27 locations</div>
         </div>
       </a>
 
@@ -292,24 +359,8 @@
         <div class="footer-sub">Scenarios · EMS Training</div>
       </div>
     </div>
-    <div class="footer-version">v1.0.1 · Never Stop Learning</div>
+    <div class="footer-version">v1.0 · Stay Sharp. Stay Ready.</div>
   </div>
 
-  <script>
-    const toggle = document.getElementById('themeToggle');
-    function applyTheme(theme) {
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('xm-theme', theme);
-      document.body.style.background = theme === 'dark' ? '#0d1117' : '#f5f0e8';
-      document.body.style.color = theme === 'dark' ? '#e6edf3' : '#1c1a16';
-      toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
-    }
-    const current = document.documentElement.getAttribute('data-theme') || 'dark';
-    applyTheme(current);
-    toggle.addEventListener('click', () => {
-      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      applyTheme(next);
-    });
-  </script>
 </body>
 </html>
