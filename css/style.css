@@ -730,6 +730,11 @@ svg#town {
   color: #2ea043;
   border: 1px solid rgba(46,160,67,0.3);
 }
+.priority-question {
+  background: rgba(107,114,128,0.12);
+  color: #6b7280;
+  border: 1px solid rgba(107,114,128,0.3);
+}
 
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 @media (max-width: 768px) {
