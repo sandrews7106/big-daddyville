@@ -168,12 +168,9 @@ function loadScenario(loc, next) {
   const tpRaw   = s.teaching_points || '';
   const tpParts = tpRaw.split(/\d+\.\s+/).filter(t => t.trim().length > 0);
 
-  // Determine priority badge
+  // Priority is now a question for the student — no badge, show prompt
   const psRaw = s.primarySurvey || '';
-  const priorityHigh = /patient priority[^.]*high/i.test(psRaw);
-  const priorityBadge = priorityHigh
-    ? '<span class="priority-badge priority-high">⬆ HIGH PRIORITY</span>'
-    : '<span class="priority-badge priority-low">⬇ LOW PRIORITY</span>';
+  const priorityPrompt = '<span class="priority-badge priority-question">❓ High or Low Priority?</span>';
 
   // Parse primary survey into labeled rows
   function parsePrimarySurvey(text) {
@@ -183,7 +180,7 @@ function loadScenario(loc, next) {
       { key: 'Airway',             icon: '💨' },
       { key: 'Breathing',          icon: '🫁' },
       { key: 'Circulation',        icon: '❤️' },
-      { key: 'Patient Priority',   icon: '🚨' },
+      { key: 'Patient priority',   icon: '🚨' },
     ];
     const rows = [];
     fields.forEach((f, i) => {
@@ -236,8 +233,6 @@ function loadScenario(loc, next) {
       <div class="reveal-content" id="con-scene">
         <div class="content-label">Chief Complaint</div>
         <div class="content-value" style="margin-bottom:10px">"${s.chief_complaint}"</div>
-        <div class="content-label">Scene</div>
-        <div class="content-text" style="margin-bottom:10px">${s.scene_description}</div>
         <div class="content-label">Scene Size-Up</div>
         <div class="content-text">${s.sceneSizeUp || ''}</div>
       </div>
@@ -253,7 +248,7 @@ function loadScenario(loc, next) {
       </button>
       <div class="reveal-content" id="con-primary">
         <div class="ps-grid">${psHTML}</div>
-        <div style="margin-top:12px">${priorityBadge}</div>
+        <div style="margin-top:12px">${priorityPrompt}</div>
       </div>
     </div>
 
