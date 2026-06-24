@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
@@ -7,13 +7,6 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
   <title>Big Daddyville — XpressoMedic</title>
   <link rel="stylesheet" href="css/style.css"/>
-  <script>
-    (function() {
-      const saved = localStorage.getItem('xm-theme') ||
-        (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-      document.documentElement.setAttribute('data-theme', saved);
-    })();
-  </script>
 </head>
 <body>
 
@@ -27,7 +20,6 @@
       <div class="header-sub">XpressoMedic EMS Training</div>
     </div>
     <div class="header-badge" id="levelBadge">EMT-B</div>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀️</button>
   </div>
 
   <div class="map-layout">
@@ -64,12 +56,12 @@
 
         <defs>
           <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path id="gridPath" d="M 40 0 L 0 0 0 40" fill="none" stroke="#141e2a" stroke-width="0.5"/>
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#141e2a" stroke-width="0.5"/>
           </pattern>
         </defs>
 
         <!-- Ground -->
-        <rect id="svgGround" width="960" height="620" fill="#0d1420"/>
+        <rect width="960" height="620" fill="#0d1420"/>
         <rect width="960" height="620" fill="url(#grid)" opacity="0.4"/>
 
         <!-- Districts -->
@@ -174,7 +166,7 @@
         <g class="pin-group" id="pin-bd_bbq"      data-id="bd_bbq"      style="cursor:pointer"><circle class="pin-ring" cx="320" cy="175" r="20" stroke="#e67e22" fill="none" stroke-width="2" opacity="0"/><circle cx="320" cy="177" r="15" fill="rgba(0,0,0,0.35)"/><circle class="pin-circle" cx="320" cy="175" r="14" fill="#e67e22" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/><text x="320" y="180" text-anchor="middle" font-size="13" style="pointer-events:none">🍖</text></g>
         <g class="pin-group" id="pin-bd_bar"      data-id="bd_bar"      style="cursor:pointer"><circle class="pin-ring" cx="390" cy="175" r="20" stroke="#e94560" fill="none" stroke-width="2" opacity="0"/><circle cx="390" cy="177" r="15" fill="rgba(0,0,0,0.35)"/><circle class="pin-circle" cx="390" cy="175" r="14" fill="#e94560" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/><text x="390" y="180" text-anchor="middle" font-size="13" style="pointer-events:none">🍺</text></g>
         <g class="pin-group" id="pin-bd_police"   data-id="bd_police"   style="cursor:pointer"><circle class="pin-ring" cx="462" cy="175" r="20" stroke="#1a5276" fill="none" stroke-width="2" opacity="0"/><circle cx="462" cy="177" r="15" fill="rgba(0,0,0,0.35)"/><circle class="pin-circle" cx="462" cy="175" r="14" fill="#1a5276" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/><text x="462" y="180" text-anchor="middle" font-size="13" style="pointer-events:none">🚔</text></g>
-        <g class="pin-group" id="pin-bd_hospital" data-id="bd_hospital" style="cursor:pointer"><circle class="pin-ring" cx="555" cy="175" r="20" stroke="#2980b9" fill="none" stroke-width="2" opacity="0"/><circle cx="555" cy="177" r="15" fill="rgba(0,0,0,0.35)"/><circle class="pin-circle" cx="555" cy="175" r="14" fill="#2980b9" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/><text x="555" y="180" text-anchor="middle" font-size="13" style="pointer-events:none">🏥</text></g>
+        <g class="pin-group" id="pin-bd_laundry"     data-id="bd_laundry"     style="cursor:pointer"><circle class="pin-ring" cx="555" cy="175" r="20" stroke="#27ae60" fill="none" stroke-width="2" opacity="0"/><circle cx="555" cy="177" r="15" fill="rgba(0,0,0,0.35)"/><circle class="pin-circle" cx="555" cy="175" r="14" fill="#27ae60" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/><text x="555" y="180" text-anchor="middle" font-size="13" style="pointer-events:none">💍</text></g>
         <g class="pin-group" id="pin-bd_chinese"  data-id="bd_chinese"  style="cursor:pointer"><circle class="pin-ring" cx="635" cy="175" r="20" stroke="#e67e22" fill="none" stroke-width="2" opacity="0"/><circle cx="635" cy="177" r="15" fill="rgba(0,0,0,0.35)"/><circle class="pin-circle" cx="635" cy="175" r="14" fill="#e67e22" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/><text x="635" y="180" text-anchor="middle" font-size="13" style="pointer-events:none">🥡</text></g>
         <g class="pin-group" id="pin-bd_pharmacy" data-id="bd_pharmacy" style="cursor:pointer"><circle class="pin-ring" cx="710" cy="110" r="20" stroke="#2980b9" fill="none" stroke-width="2" opacity="0"/><circle cx="710" cy="112" r="15" fill="rgba(0,0,0,0.35)"/><circle class="pin-circle" cx="710" cy="110" r="14" fill="#2980b9" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/><text x="710" y="115" text-anchor="middle" font-size="13" style="pointer-events:none">💊</text></g>
         <g class="pin-group" id="pin-bd_carwash"  data-id="bd_carwash"  style="cursor:pointer"><circle class="pin-ring" cx="790" cy="175" r="20" stroke="#7f8c8d" fill="none" stroke-width="2" opacity="0"/><circle cx="790" cy="177" r="15" fill="rgba(0,0,0,0.35)"/><circle class="pin-circle" cx="790" cy="175" r="14" fill="#7f8c8d" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/><text x="790" y="180" text-anchor="middle" font-size="13" style="pointer-events:none">🚗</text></g>
@@ -189,10 +181,10 @@
         <g class="pin-group" id="pin-bd_gasgo" data-id="bd_gasgo"  style="cursor:pointer"><circle class="pin-ring" cx="328" cy="450" r="20" stroke="#7f8c8d" fill="none" stroke-width="2" opacity="0"/><circle cx="328" cy="452" r="15" fill="rgba(0,0,0,0.35)"/><circle class="pin-circle" cx="328" cy="450" r="14" fill="#7f8c8d" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/><text x="328" y="455" text-anchor="middle" font-size="13" style="pointer-events:none">👕</text></g>
         <g class="pin-group" id="pin-bd_mhp" data-id="bd_mhp"   style="cursor:pointer"><circle class="pin-ring" cx="428" cy="450" r="20" stroke="#27ae60" fill="none" stroke-width="2" opacity="0"/><circle cx="428" cy="452" r="15" fill="rgba(0,0,0,0.35)"/><circle class="pin-circle" cx="428" cy="450" r="14" fill="#27ae60" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/><text x="428" y="455" text-anchor="middle" font-size="13" style="pointer-events:none">🏪</text></g>
         <g class="pin-group" id="pin-bd_taco"     data-id="bd_taco"     style="cursor:pointer"><circle class="pin-ring" cx="558" cy="450" r="20" stroke="#e67e22" fill="none" stroke-width="2" opacity="0"/><circle cx="558" cy="452" r="15" fill="rgba(0,0,0,0.35)"/><circle class="pin-circle" cx="558" cy="450" r="14" fill="#e67e22" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/><text x="558" y="455" text-anchor="middle" font-size="13" style="pointer-events:none">🌮</text></g>
-        <g class="pin-group" id="pin-bd_estates"  data-id="bd_estates"   style="cursor:pointer"><circle class="pin-ring" cx="658" cy="450" r="20" stroke="#d35400" fill="none" stroke-width="2" opacity="0"/><circle cx="658" cy="452" r="15" fill="rgba(0,0,0,0.35)"/><circle class="pin-circle" cx="658" cy="450" r="14" fill="#d35400" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/><text x="658" y="455" text-anchor="middle" font-size="13" style="pointer-events:none">🏡</text></g>
+        <g class="pin-group" id="pin-bd_estates"   data-id="bd_estates"   style="cursor:pointer"><circle class="pin-ring" cx="720" cy="555" r="20" stroke="#e94560" fill="none" stroke-width="2" opacity="0"/><circle cx="720" cy="557" r="15" fill="rgba(0,0,0,0.35)"/><circle class="pin-circle" cx="720" cy="555" r="14" fill="#e94560" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/><text x="658" y="455" text-anchor="middle" font-size="13" style="pointer-events:none">🥃</text></g>
         <g class="pin-group" id="pin-bd_club"     data-id="bd_club"     style="cursor:pointer"><circle class="pin-ring" cx="710" cy="510" r="20" stroke="#e94560" fill="none" stroke-width="2" opacity="0"/><circle cx="710" cy="512" r="15" fill="rgba(0,0,0,0.35)"/><circle class="pin-circle" cx="710" cy="510" r="14" fill="#e94560" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/><text x="710" y="515" text-anchor="middle" font-size="13" style="pointer-events:none">🎭</text></g>
         <g class="pin-group" id="pin-bd_nursing" data-id="bd_nursing"     style="cursor:pointer"><circle class="pin-ring" cx="798" cy="450" r="20" stroke="#a0522d" fill="none" stroke-width="2" opacity="0"/><circle cx="798" cy="452" r="15" fill="rgba(0,0,0,0.35)"/><circle class="pin-circle" cx="798" cy="450" r="14" fill="#a0522d" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/><text x="798" y="455" text-anchor="middle" font-size="13" style="pointer-events:none">☕</text></g>
-        <g class="pin-group" id="pin-bd_diner"    data-id="bd_diner"    style="cursor:pointer"><circle class="pin-ring" cx="888" cy="450" r="20" stroke="#e67e22" fill="none" stroke-width="2" opacity="0"/><circle cx="888" cy="452" r="15" fill="rgba(0,0,0,0.35)"/><circle class="pin-circle" cx="888" cy="450" r="14" fill="#e67e22" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/><text x="888" y="455" text-anchor="middle" font-size="13" style="pointer-events:none">🥞</text></g>
+        <g class="pin-group" id="pin-bd_dollar"    data-id="bd_dollar"    style="cursor:pointer"><circle class="pin-ring" cx="888" cy="450" r="20" stroke="#e67e22" fill="none" stroke-width="2" opacity="0"/><circle cx="888" cy="452" r="15" fill="rgba(0,0,0,0.35)"/><circle class="pin-circle" cx="888" cy="450" r="14" fill="#e67e22" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/><text x="888" y="455" text-anchor="middle" font-size="13" style="pointer-events:none">🥞</text></g>
         <g class="pin-group" id="pin-bd_church"   data-id="bd_church"   style="cursor:pointer"><circle class="pin-ring" cx="230" cy="572" r="20" stroke="#d35400" fill="none" stroke-width="2" opacity="0"/><circle cx="230" cy="574" r="15" fill="rgba(0,0,0,0.35)"/><circle class="pin-circle" cx="230" cy="572" r="14" fill="#d35400" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/><text x="230" y="577" text-anchor="middle" font-size="13" style="pointer-events:none">⛪</text></g>
         <g class="pin-group" id="pin-bd_suites"   data-id="bd_suites"   style="cursor:pointer"><circle class="pin-ring" cx="858" cy="510" r="20" stroke="#8e44ad" fill="none" stroke-width="2" opacity="0"/><circle cx="858" cy="512" r="15" fill="rgba(0,0,0,0.35)"/><circle class="pin-circle" cx="858" cy="510" r="14" fill="#8e44ad" stroke="rgba(0,0,0,0.4)" stroke-width="1.5"/><text x="858" y="515" text-anchor="middle" font-size="13" style="pointer-events:none">🏩</text></g>
 
@@ -230,161 +222,9 @@
   </div>
 </div>
 
-<script src="js/scenarios-emtb.js?v=3"></script>
-<script src="js/scenarios-aemt.js?v=3"></script>
-<script src="js/scenarios-medic.js?v=3"></script>
-<script src="js/map.js?v=3"></script>
-<script>
-  const themeToggle = document.getElementById('themeToggle');
-
-  const svgDark = {
-    ground:      '#0d1420',
-    grid:        '#141e2a',
-    mainRoad:    '#2a3a4a',
-    mainRoadLine:'#3a5068',
-    roadLabel:   '#4a6280',
-    sideRoad:    '#1e2f3e',
-    sideLabel:   '#2a4a62',
-    block:       '#111820',
-    intersection:'#1a2a3a',
-    intersectionSm:'#151f2a',
-    parkOuter:   '#0e2a14',
-    parkInner:   '#0a2010',
-    parkLabel:   '#2a8a3a',
-    parkRing:    '#1a4a1a',
-    pondFill:    '#0a1a2e',
-    pondInner:   '#0d2040',
-    pondLabel:   '#1a4a6a',
-    districtN:   '#1a2510',
-    districtS:   '#1a1510',
-    districtE:   '#1a1520',
-    districtTextN:'#2a3a1a',
-    districtTextS:'#2a2015',
-    districtTextE:'#2a1a2a',
-    fountainBg:  '#0a1a2a',
-    fountainStroke:'#1a4a6a',
-    pinShadow:   'rgba(0,0,0,0.35)',
-    pinStroke:   'rgba(0,0,0,0.4)',
-  };
-
-  const svgLight = {
-    ground:      '#e8dfc8',
-    grid:        '#c8bfaa',
-    mainRoad:    '#b8a888',
-    mainRoadLine:'#a09070',
-    roadLabel:   '#6a5a40',
-    sideRoad:    '#c4b898',
-    sideLabel:   '#8a7a60',
-    block:       '#d8ceb8',
-    intersection:'#c8bea8',
-    intersectionSm:'#d0c8b0',
-    parkOuter:   '#b8d8a0',
-    parkInner:   '#c8e8b0',
-    parkLabel:   '#2a6a1a',
-    parkRing:    '#4a9a2a',
-    pondFill:    '#a0c8e8',
-    pondInner:   '#b8d8f0',
-    pondLabel:   '#2a6a9a',
-    districtN:   '#c8d8b0',
-    districtS:   '#d8c8a8',
-    districtE:   '#c8c0d8',
-    districtTextN:'#4a6a2a',
-    districtTextS:'#6a5020',
-    districtTextE:'#4a3a6a',
-    fountainBg:  '#b0d0e8',
-    fountainStroke:'#4a8ab0',
-    pinShadow:   'rgba(0,0,0,0.15)',
-    pinStroke:   'rgba(0,0,0,0.2)',
-  };
-
-  function applyMapTheme(theme) {
-    const c = theme === 'dark' ? svgDark : svgLight;
-
-    // Ground & grid
-    const ground = document.getElementById('svgGround');
-    if (ground) ground.setAttribute('fill', c.ground);
-    const gridPath = document.getElementById('gridPath');
-    if (gridPath) gridPath.setAttribute('stroke', c.grid);
-
-    // Roads - main
-    document.querySelectorAll('line').forEach(l => {
-      const sw = l.getAttribute('stroke-width');
-      const sd = l.getAttribute('stroke-dasharray');
-      if (sw === '28')   l.setAttribute('stroke', c.mainRoad);
-      else if (sd && sw === '1.5') l.setAttribute('stroke', c.mainRoadLine);
-      else if (sw === '10') l.setAttribute('stroke', c.sideRoad);
-    });
-
-    // Road text labels
-    document.querySelectorAll('text').forEach(t => {
-      const f = t.getAttribute('fill');
-      if (f === '#4a6280' || f === svgDark.roadLabel || f === svgLight.roadLabel)
-        t.setAttribute('fill', c.roadLabel);
-      else if (f === '#2a4a62' || f === svgDark.sideLabel || f === svgLight.sideLabel)
-        t.setAttribute('fill', c.sideLabel);
-      else if (f === '#2a8a3a' || f === svgDark.parkLabel || f === svgLight.parkLabel)
-        t.setAttribute('fill', c.parkLabel);
-      else if (f === '#1a4a6a' || f === svgDark.pondLabel || f === svgLight.pondLabel)
-        t.setAttribute('fill', c.pondLabel);
-      else if (f === '#2a3a1a' || f === svgDark.districtTextN || f === svgLight.districtTextN)
-        t.setAttribute('fill', c.districtTextN);
-      else if (f === '#2a2015' || f === svgDark.districtTextS || f === svgLight.districtTextS)
-        t.setAttribute('fill', c.districtTextS);
-      else if (f === '#2a1a2a' || f === svgDark.districtTextE || f === svgLight.districtTextE)
-        t.setAttribute('fill', c.districtTextE);
-    });
-
-    // Blocks and district rects
-    document.querySelectorAll('rect').forEach(r => {
-      const f = r.getAttribute('fill');
-      if (f === '#111820') r.setAttribute('fill', c.block);
-      else if (f === '#1a2510') r.setAttribute('fill', c.districtN);
-      else if (f === '#1a1510') r.setAttribute('fill', c.districtS);
-      else if (f === '#1a1520') r.setAttribute('fill', c.districtE);
-      else if (f === '#0e2a14') r.setAttribute('fill', c.parkOuter);
-      else if (f === '#0a2010') r.setAttribute('fill', c.parkInner);
-    });
-
-    // Intersection circles
-    document.querySelectorAll('circle:not(.pin-ring):not(.pin-circle)').forEach(circ => {
-      const f = circ.getAttribute('fill');
-      if (f === '#1a2a3a') circ.setAttribute('fill', c.intersection);
-      else if (f === '#151f2a') circ.setAttribute('fill', c.intersectionSm);
-      else if (f === '#0a1a2a') circ.setAttribute('fill', c.fountainBg);
-      else if (f && f.startsWith('rgba(0,0,0')) circ.setAttribute('fill', c.pinShadow);
-    });
-
-    // Park ellipses
-    document.querySelectorAll('ellipse').forEach(el => {
-      const f = el.getAttribute('fill');
-      const s = el.getAttribute('stroke');
-      if (f === 'none' && s === '#1a4a1a') el.setAttribute('stroke', c.parkRing);
-      else if (f === '#0a1a2e') el.setAttribute('fill', c.pondFill);
-      else if (f === '#0d2040') el.setAttribute('fill', c.pondInner);
-    });
-
-    // Pin shadow strokes
-    document.querySelectorAll('.pin-circle').forEach(pc => {
-      pc.setAttribute('stroke', c.pinStroke);
-    });
-  }
-
-  function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('xm-theme', theme);
-    themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
-    applyMapTheme(theme);
-  }
-
-  const current = document.documentElement.getAttribute('data-theme') || 'dark';
-  themeToggle.textContent = current === 'dark' ? '☀️' : '🌙';
-  // Apply map colors on load too
-  window.addEventListener('DOMContentLoaded', () => applyMapTheme(current));
-
-  themeToggle.addEventListener('click', () => {
-    const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    applyTheme(next);
-  });
-</script>
+<script src="js/scenarios-emtb.js"></script>
+<script src="js/scenarios-aemt.js"></script>
+<script src="js/scenarios-medic.js"></script>
+<script src="js/map.js"></script>
 </body>
 </html>
