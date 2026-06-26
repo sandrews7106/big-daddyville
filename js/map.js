@@ -201,7 +201,14 @@ function loadScenario(loc, next) {
         <span class="reveal-chevron">▶</span>
       </button>
       <div class="reveal-content" id="con-scene">
-        <div class="content-text">${s.sceneSizeUp}</div>
+        <div class="ps-grid">${(()=>{
+          const t = s.sceneSizeUp;
+          const resIdx = t.indexOf('Resources available:');
+          const main = resIdx !== -1 ? t.slice(0, resIdx).trim() : t;
+          const res  = resIdx !== -1 ? t.slice(resIdx).trim() : '';
+          return \`<div class="ps-row"><div class="ps-content"><div class="ps-value">\${main}</div></div></div>\`
+               + (res ? \`<div class="ps-row" style="border-left-color:#e67e22"><div class="ps-content"><div class="ps-label">🚑 Resources Available</div><div class="ps-value">\${res.replace('Resources available:','').trim()}</div></div></div>\` : '');
+        })()}</div>
       </div>
     </div>
 
@@ -214,7 +221,30 @@ function loadScenario(loc, next) {
         <span class="reveal-chevron">▶</span>
       </button>
       <div class="reveal-content" id="con-primary">
-        <div class="content-text">${s.primarySurvey}</div>
+        <div class="ps-grid">${(()=>{
+          const t = s.primarySurvey;
+          const segments = [
+            { icon:'👁', label:'General Impression', key:'General Impression:' },
+            { icon:'🧠', label:'AVPU',               key:'AVPU:' },
+            { icon:'💨', label:'Airway',             key:'Airway:' },
+            { icon:'🫁', label:'Breathing',          key:'Breathing:' },
+            { icon:'❤️', label:'Circulation',        key:'Circulation:' },
+          ];
+          let html = '';
+          segments.forEach((seg, i) => {
+            const start = t.indexOf(seg.key);
+            if (start === -1) return;
+            const nextKeys = segments.slice(i+1).map(s=>s.key).concat(['Patient Priority']);
+            const end = nextKeys.reduce((e, k) => { const idx = t.indexOf(k); return idx !== -1 && idx < e ? idx : e; }, t.length);
+            const val = t.slice(start + seg.key.length, end).trim();
+            html += \`<div class="ps-row"><div class="ps-content"><div class="ps-label">\${seg.icon} \${seg.label}</div><div class="ps-value">\${val}</div></div></div>\`;
+          });
+          const pIdx = t.indexOf('Patient Priority');
+          if (pIdx !== -1) {
+            html += \`<div class="ps-row" style="border-left-color:#e67e22;background:rgba(230,126,34,0.07)"><div class="ps-content"><div class="ps-value" style="font-weight:700;color:#e67e22">\${t.slice(pIdx).trim()}</div></div></div>\`;
+          }
+          return html;
+        })()}</div>
       </div>
     </div>
 
@@ -242,12 +272,33 @@ function loadScenario(loc, next) {
       <button class="reveal-btn" onclick="toggleReveal('history')" id="btn-history">
         <div class="reveal-btn-left">
           <span class="reveal-btn-icon">🔍</span>
-          <div><div class="reveal-btn-label">History &amp; Secondary Assessment</div><div class="reveal-btn-sub">OPQRST · SAMPLE · Focused Exam</div></div>
+          <div><div class="reveal-btn-label">History &amp; Secondary Assessment</div><div class="reveal-btn-sub">OPQRST · SAMPLE · Secondary Exam</div></div>
         </div>
         <span class="reveal-chevron">▶</span>
       </button>
       <div class="reveal-content" id="con-history">
-        <div class="content-text">${s.historySecondary}</div>
+        <div class="ps-grid">${(()=>{
+          const t = s.historySecondary;
+          const keys = [
+            { icon:'📋', label:'OPQRST',          key:'OPQRST:' },
+            { icon:'📋', label:'History',          key:'History from' },
+            { icon:'💊', label:'SAMPLE',           key:'SAMPLE:' },
+            { icon:'🔬', label:'Secondary Exam',   key:'Secondary exam:' },
+          ];
+          const active = keys.filter(k => t.includes(k.key));
+          const firstIdx = active.length ? t.indexOf(active[0].key) : t.length;
+          let html = '';
+          if (firstIdx > 0) {
+            html += \`<div class="ps-row"><div class="ps-content"><div class="ps-label">🧍 Patient</div><div class="ps-value">\${t.slice(0, firstIdx).trim()}</div></div></div>\`;
+          }
+          active.forEach((seg, i) => {
+            const start = t.indexOf(seg.key);
+            const end = active.slice(i+1).reduce((e, ns) => { const idx = t.indexOf(ns.key); return idx !== -1 && idx < e ? idx : e; }, t.length);
+            const val = t.slice(start + seg.key.length, end).trim();
+            html += \`<div class="ps-row"><div class="ps-content"><div class="ps-label">\${seg.icon} \${seg.label}</div><div class="ps-value">\${val}</div></div></div>\`;
+          });
+          return html;
+        })()}</div>
       </div>
     </div>
 

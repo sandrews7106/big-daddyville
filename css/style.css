@@ -118,6 +118,13 @@
 
 /* Light mode content text overrides */
 [data-theme="light"] .content-text    { color: #3a3530; }
+[data-theme="light"] .ps-row {
+  background: rgba(0,0,0,0.03);
+  border-left-color: rgba(0,0,0,0.12);
+}
+[data-theme="light"] .ps-label { color: #6b7280; }
+[data-theme="light"] .ps-value { color: #1a2a3a; }
+
 [data-theme="light"] .content-value   { color: #1c1a16; }
 [data-theme="light"] .content-label   { color: #6b6560; }
 [data-theme="light"] .ps-value        { color: #2a2520; }
