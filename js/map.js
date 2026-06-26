@@ -204,10 +204,9 @@ function loadScenario(loc, next) {
         <div class="ps-grid">${(()=>{
           const t = s.sceneSizeUp;
           const resIdx = t.indexOf('Resources available:');
-          const main = resIdx !== -1 ? t.slice(0, resIdx).trim() : t;
-          const res  = resIdx !== -1 ? t.slice(resIdx + 'Resources available:'.length).trim() : '';
-          return '<div class="ps-row"><div class="ps-content"><div class="ps-value">' + main + '</div></div></div>'
-               + (res ? '<div class="ps-row" style="border-left-color:#e67e22"><div class="ps-content"><div class="ps-label">🚑 Resources Available</div><div class="ps-value">' + res + '</div></div></div>' : '');
+          const procedural = resIdx !== -1 ? t.slice(0, resIdx).trim() : t;
+          return '<div class="ps-row"><div class="ps-content"><div class="ps-value">' + procedural + '</div></div></div>'
+               + '<div class="ps-row" style="border-left-color:#e67e22"><div class="ps-content"><div class="ps-label">🚑 Resources Available</div><div class="ps-value">BLS Engine, ALS Ambulance, EMS Supervisor, Rotor-Wing Medevac, Police Department.</div></div></div>';
         })()}
       </div>
     </div>
@@ -222,6 +221,10 @@ function loadScenario(loc, next) {
       </button>
       <div class="reveal-content" id="con-primary">
         <div class="ps-grid">${(()=>{
+          const RMARKER = 'Resources available: BLS Engine, ALS Ambulance, EMS Supervisor, Rotor-Wing Medevac, Police Department.';
+          const sc = s.sceneSizeUp;
+          const mIdx = sc.indexOf(RMARKER);
+          const sceneNarrative = mIdx !== -1 ? sc.slice(mIdx + RMARKER.length).trim() : '';
           const t = s.primarySurvey;
           const segs = [
             {icon:'👁', label:'General Impression', key:'General Impression:'},
@@ -231,6 +234,9 @@ function loadScenario(loc, next) {
             {icon:'❤️', label:'Circulation',        key:'Circulation:'},
           ];
           let html = '';
+          if (sceneNarrative) {
+            html += '<div class="ps-row" style="border-left-color:#8e44ad"><div class="ps-content"><div class="ps-label">📍 Scene Description</div><div class="ps-value">' + sceneNarrative + '</div></div></div>';
+          }
           segs.forEach((seg, i) => {
             const start = t.indexOf(seg.key);
             if (start === -1) return;
